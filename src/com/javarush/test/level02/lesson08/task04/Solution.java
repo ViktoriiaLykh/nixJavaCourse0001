@@ -7,14 +7,26 @@ package com.javarush.test.level02.lesson08.task04;
 
 class Solution {
 
-  public static int min(int a, int b, int c, int d) {
-    int mainMin;
+    public static int min(int a, int b, int c, int d) {
+        int mainMin;
 
-    // напишите код здесь:
+        int AandB = min(a, b);
 
+        int CandD = min(c, d);
 
-    return mainMin;
-  }
+        mainMin = min(AandB, CandD);
 
+        return mainMin;
+    }
+
+    public static int min(int a, int b) {
+        int min = 0;
+        if (a < b) {
+            min = a;
+        } else {
+            min = b;
+        }
+        return min;
+    }
 
 }

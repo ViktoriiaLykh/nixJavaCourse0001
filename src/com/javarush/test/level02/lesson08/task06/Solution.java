@@ -12,7 +12,8 @@ class Solution {
   }
 
   public static void print(String value) {
-    // напишите код здесь:
+    System.out.print(value + " " + value + " " + value );
+
 
 
 

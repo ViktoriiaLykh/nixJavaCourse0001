@@ -12,7 +12,9 @@ class Solution {
   }
 
   public static void print(String s) {
-    // напишите код здесь:
+    System.out.println(s);
+    System.out.println(s);
+    System.out.println(s);
 
 
   }
