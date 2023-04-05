@@ -5,8 +5,10 @@ package com.javarush.test.level03.lesson04.task01;
 */
 
 class Solution {
-  // напишите код здесь:
-
+    public static void main(String[] args) {
+        String text = "MAY 9 2020";
+        System.out.println(text);
+    }
 
 
 }

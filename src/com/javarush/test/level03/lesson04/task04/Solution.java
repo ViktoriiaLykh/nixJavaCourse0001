@@ -6,9 +6,12 @@ package com.javarush.test.level03.lesson04.task04;
 */
 
 class Solution {
+    public static void main(String[] args) {
+        int x = 1;
 
-  // напишите код здесь:
-
-
-
+        for (int y = 1; y <= 10; y++) {
+            x = x * y;
+        }
+        System.out.print(x);
+    }
 }

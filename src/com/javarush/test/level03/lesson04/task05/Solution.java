@@ -17,7 +17,13 @@ package com.javarush.test.level03.lesson04.task05;
 
 class Solution {
 
-  // напишите код здесь:
+    public static void main(String[] args) {
+        int x = 0;
+        for (int y = 1; y <= 10; y++) {
+            x += y;
+            System.out.println(x);
+        }
+    }
 
 
 

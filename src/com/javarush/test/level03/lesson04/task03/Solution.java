@@ -5,8 +5,9 @@ package com.javarush.test.level03.lesson04.task03;
 */
 
 class Solution {
+    public static void main(String[] args) {
+        System.out.println("Бендер мой любимый учитель");
 
-  // напишите код здесь:
-
+    }
 
 }

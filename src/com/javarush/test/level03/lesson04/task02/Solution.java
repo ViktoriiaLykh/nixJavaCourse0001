@@ -6,8 +6,15 @@ package com.javarush.test.level03.lesson04.task02;
 
 class Solution {
 
-  // напишите код здесь:
+    public static void main(String[] args) {
 
+        int v;
+        for (v = 0; v < 5; v++) {
+            System.out.println("Вика Вика Вика Вика Вика Вика Вика Вика Вика Вика ");
+
+        }
+
+    }
 
 
 }
