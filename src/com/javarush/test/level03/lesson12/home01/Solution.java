@@ -4,10 +4,14 @@ package com.javarush.test.level03.lesson12.home01;
 Вывести на экран надпись «Жить хорошо, а хорошо жить еще лучше»
 */
 
+import java.io.IOException;
+
 class Solution {
 
-  // напишите код здесь:
+    public static void main(String[] args) throws IOException {
+        System.out.println("Жить хорошо, а хорошо жить еще лучше");
 
+    }
 
 
 }
