@@ -6,13 +6,20 @@ name зарабатывает $5,000. Ха-ха-ха!
 Пример: Тимур зарабатывает $5,000. Ха-ха-ха!
 */
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 class Solution {
 
   public static void main(String[] args) throws Exception {
-    // напишите код здесь:
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-
+    String name = reader.readLine();
+    System.out.print(name + " зарабатывает $5,000. Ха-ха-ха!");
 
 
   }
+
+
 }
