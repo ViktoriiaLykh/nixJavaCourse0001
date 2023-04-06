@@ -6,7 +6,11 @@ package com.javarush.test.level03.lesson06.task05;
 
 class Solution {
 
-  // напишите код здесь:
-
+    public static void main(String[] args) {
+        String a = "日";
+        String b = "本";
+        String c = "語";
+        System.out.println(a + b + c);
+    }
 
 }

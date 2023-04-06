@@ -6,7 +6,9 @@ package com.javarush.test.level03.lesson06.task04;
 
 class Solution {
 
-  // напишите код здесь:
+    public static void main(String[] args) {
+        System.out.println("C:\\Program Files (x86)\\Java\\jdk1.8.0_361\\jre\\bin");
+    }
 
 
 

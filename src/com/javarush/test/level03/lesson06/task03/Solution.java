@@ -7,8 +7,11 @@ package com.javarush.test.level03.lesson06.task03;
 */
 
 class Solution {
-
-  // напишите код здесь:
+    public static void main(String[] args) {
+        System.out.println("Красный Оранжевый Жёлтый");
+        System.out.println("Зелёный Голубой Синий");
+        System.out.println("Фиолетовый");
+    }
 
 
 }
