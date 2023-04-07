@@ -8,8 +8,26 @@ package com.javarush.test.level04.lesson13.task02;
 8888
 */
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 class Solution {
-  // напишите код здесь:
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        int m = Integer.parseInt(reader.readLine());
+        int n = Integer.parseInt(reader.readLine());
+
+        for (int i = 0; i < m; i++) {
+            System.out.println("");
+            for (int k = 0; k < n; k++) {
+                System.out.print("8");
+            }
+        }
+
+
+    }
 
 
 }
