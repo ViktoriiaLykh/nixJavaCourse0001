@@ -8,8 +8,24 @@ package com.javarush.test.level04.lesson10.task05;
 */
 
 class Solution {
-  // напишите код здесь:
+    public static void main(String[] args) {
+        int x = 1;
+        int y = 1;
 
+        while (x <= 10) {
+
+            while (y <= 10) {
+
+                System.out.print(x * y + " ");
+                y++;
+            }
+            y = 1;
+            System.out.println("");
+            x++;
+
+        }
+        System.out.println("");
+    }
 
 
 }

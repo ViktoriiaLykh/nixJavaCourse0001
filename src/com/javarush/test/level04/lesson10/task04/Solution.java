@@ -4,9 +4,25 @@ package com.javarush.test.level04.lesson10.task04;
 Вывести на экран квадрат из 10х10 букв S используя цикл while. Буквы в одной строке не разделять.
 */
 
-class Solution {
-  // напишите код здесь:
+import java.io.IOException;
 
+class Solution {
+    public static void main(String[] args) throws IOException {
+        String s = "S";
+        int i = 1;
+        int k = 1;
+        while (k <= 10) {
+
+            while (i <= 10) {
+                System.out.print(s);
+                i++;
+            }
+            i = 1;
+            System.out.println("");
+            k++;
+        }
+
+    }
 
 
 }

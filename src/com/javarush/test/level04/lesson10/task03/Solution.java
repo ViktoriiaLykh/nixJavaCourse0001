@@ -11,8 +11,25 @@ package com.javarush.test.level04.lesson10.task03;
 абв
 */
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 class Solution {
-  // напишите код здесь:
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        String val = reader.readLine();
+        int N = Integer.parseInt(reader.readLine());
+        int i = 0;
+        while (i < N) {
+            System.out.println(val);
+            i++;
+        }
+
+    }
+
+
 
 
 
