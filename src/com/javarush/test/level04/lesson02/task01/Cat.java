@@ -10,8 +10,7 @@ class Cat {
   private String name;
 
   public void setName(String name) {
-    // напишите код здесь:
-
+    this.name = name;
 
 
   }

@@ -9,8 +9,7 @@ class Cat {
   private String fullName;
 
   public void setName(String firstName, String lastName) {
-    // напишите код здесь:
-
+    this.fullName = firstName + " " + lastName;
 
 
   }
