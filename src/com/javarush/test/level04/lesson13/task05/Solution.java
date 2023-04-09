@@ -6,8 +6,19 @@ package com.javarush.test.level04.lesson13.task05;
 Света любит меня.
 */
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 class Solution {
-  // напишите код здесь:
 
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
+        String name = reader.readLine();
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(name + " любит меня.");
+
+        }
+    }
 }

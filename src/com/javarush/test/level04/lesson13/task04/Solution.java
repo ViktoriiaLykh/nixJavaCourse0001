@@ -7,7 +7,13 @@ package com.javarush.test.level04.lesson13.task04;
 */
 
 class Solution {
-  // напишите код здесь:
-
-
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.print("8");
+        }
+        System.out.println();
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("8");
+        }
+    }
 }

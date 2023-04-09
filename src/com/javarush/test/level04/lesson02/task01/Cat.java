@@ -7,11 +7,9 @@ package com.javarush.test.level04.lesson02.task01;
 
 class Cat {
 
-  private String name;
+    private String name;
 
-  public void setName(String name) {
-    this.name = name;
-
-
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 }
