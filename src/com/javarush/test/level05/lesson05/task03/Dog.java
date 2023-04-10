@@ -6,8 +6,22 @@ package com.javarush.test.level05.lesson05.task03;
 */
 
 class Dog {
-  // напишите код здесь:
+    private String name;
+    private int age;
 
+    private void setName(String name) {
+        this.name = name;
+    }
 
+    private String getName() {
+        return name;
+    }
 
+    private void setAge(int age) {
+        this.age = age;
+    }
+
+    private int getAge() {
+        return age;
+    }
 }
