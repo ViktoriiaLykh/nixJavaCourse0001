@@ -10,7 +10,26 @@ package com.javarush.test.level05.lesson09.task05;
 */
 
 class Rectangle {
-  // напишите код здесь:
+    private int top;
+    private int left;
+    private int width;
+    private int height;
+
+
+    public Rectangle(int top, int left, int width, int height) {
+        this.top = top;
+        this.left = left;
+        this.width = width;
+        this.height = height;
+    }
+
+    public Rectangle(int top, int left) {
+        this(top, left, 0, 0);
+    }
+
+    public Rectangle(int top, int left, int width) {
+        this(top, left, width, width);
+    }
 
 
 }

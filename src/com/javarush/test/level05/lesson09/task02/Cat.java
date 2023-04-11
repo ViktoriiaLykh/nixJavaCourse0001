@@ -14,7 +14,52 @@ package com.javarush.test.level05.lesson09.task02;
 */
 
 class Cat {
-  // напишите код здесь:
+    private static final int STANDARD_WEIGHT = 7;
+    private static final int AVERAGE_WEIGHT = 5;
+    private static final int AVERAGE_AGE = 4;
+
+    private String name;
+    private int weight;
+    private int age;
+    private String color;
+    private String address;
+
+    public Cat(String name) {
+        this(name, 0, 0, null, null);
+    }
+
+    public Cat(String name, int weight, int age) {
+        this(name, weight, age, null, null);
+    }
+
+    public Cat(String name, int age) {
+        this(name, STANDARD_WEIGHT, age, null, null);
+    }
+
+    public Cat(int weight, String color) {
+        this(null, weight, 0, color, null);
+    }
+
+    public Cat(int weight, String color, String address) {
+        this(null, weight, 0, color, address);
+    }
+
+    public Cat(String name, int weight, int age, String color, String address) {
+        if (weight == 0) {
+            weight = AVERAGE_WEIGHT;
+        }
+
+        if (age == 0) {
+            age = AVERAGE_AGE;
+        }
+
+        this.name = name;
+        this.weight = weight;
+        this.age = age;
+        this.color = color;
+        this.address = address;
+    }
+
 
 
 }

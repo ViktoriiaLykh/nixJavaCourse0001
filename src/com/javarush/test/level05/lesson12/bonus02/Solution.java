@@ -14,12 +14,17 @@ class Solution {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     int a = Integer.parseInt(reader.readLine());
     int b = Integer.parseInt(reader.readLine());
-    // напишите код здесь:
+    int c = Integer.parseInt(reader.readLine());
+    int d = Integer.parseInt(reader.readLine());
+    int e = Integer.parseInt(reader.readLine());
 
 
 
+    int minimumAB = min(a, b);
+    int minimumCD = min(c, d);
+    int minimumABCD = min(minimumAB, minimumCD);
+    int minimum = min(minimumABCD, e);
 
-    int minimum = min(a, b);
     System.out.println("Minimum = " + minimum);
   }
 

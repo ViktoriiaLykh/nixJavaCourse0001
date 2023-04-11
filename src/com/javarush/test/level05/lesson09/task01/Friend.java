@@ -8,6 +8,22 @@ package com.javarush.test.level05.lesson09.task01;
 */
 
 class Friend {
-  // напишите код здесь:
+    private String name;
+    private int age;
+    private boolean gender;
 
+    public Friend(String name) {
+        this.name = name;
+    }
+
+    public Friend(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public Friend(String name, int age, boolean gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
 }
