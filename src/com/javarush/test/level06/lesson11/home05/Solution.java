@@ -8,7 +8,14 @@ package com.javarush.test.level06.lesson11.home05;
 */
 
 class Solution {
-  // напишите код здесь:
+    public static class Idea {
+        public String getDescription() {
+            return "I'm here";
+        }
+    }
 
+    public void printIdea(Idea idea) {
+        System.out.println(idea.getDescription());
+    }
 
 }

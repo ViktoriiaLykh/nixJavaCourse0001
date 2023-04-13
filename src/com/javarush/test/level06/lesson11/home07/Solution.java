@@ -5,17 +5,16 @@ package com.javarush.test.level06.lesson11.home07;
 */
 
 class Solution {
-  // напишите код здесь:
+    public static String name;
 
 
-  private static class Cat {
-    // напишите код здесь:
+    private static class Cat {
+        public static String name;
 
 
-  }
+    }
 
-  private static class Dog {
-    // напишите код здесь:
-
-  }
+    private static class Dog {
+        public static String name;
+    }
 }

@@ -29,34 +29,48 @@ Cat name is дочь Пушинка, mother is мама Василиса, father
 
 class Solution {
 
-  public static void main(String[] args) throws IOException {
-    Cat catMother = new Cat("мама Василиса");
-    Cat catDaughter = new Cat("дочь Пушинка", catMother);
+    public static void main(String[] args) throws IOException {
+        Cat catGrandMa = new Cat("бабушка Мурка", null, null);
+        Cat catGrandFa = new Cat("дедушка Вася", null, null);
+        Cat catMother = new Cat("мама Василиса", catGrandMa, null);
+        Cat catFather = new Cat("папа Котофей", null, catGrandFa);
+        Cat catDaughter = new Cat("дочь Пушинка", catMother, catFather);
+        Cat catSun = new Cat("сын Мурчик", catMother, catFather);
 
-    System.out.println(catMother);
-    System.out.println(catDaughter);
-  }
 
-  static class Cat {
-    private final String name;
-    private Cat mother;
 
-    Cat(String name) {
-      this.name = name;
+        System.out.println(catGrandFa);
+        System.out.println(catGrandMa);
+        System.out.println(catFather);
+        System.out.println(catMother);
+        System.out.println(catSun);
+        System.out.println(catDaughter);
     }
 
-    Cat(String name, Cat mother) {
-      this.name = name;
-      this.mother = mother;
+    static class Cat {
+        private final String name;
+        private Cat mother;
+        private Cat father;
+
+        Cat(String name, Cat catMother, Cat catFather) {
+            this.name = name;
+            this.mother = catMother;
+            this.father = catFather;
+        }
+
+        @Override
+        public String toString() {
+            if (mother == null && father == null) {
+                return "Cat name is " + name + ", no mother" + ", no father";
+            } else if (mother != null && father == null) {
+                return "Cat name is " + name + ", mother is " + mother.name + ", no father";
+            } else if (father != null && mother == null) {
+                return "Cat name is " + name + ", no mother" + ", father is " + father.name;
+            }
+            else {
+                return "Cat name is " + name + ", mother is " + mother.name + ", father is " + father.name;
+            }
+        }
     }
 
-    @Override
-    public String toString() {
-      if (mother == null ) {
-        return "Cat name is " + name + ", no mother";
-      } else {
-        return "Cat name is " + name + ", mother is " + mother.name;
-      }
-    }
-  }
 }

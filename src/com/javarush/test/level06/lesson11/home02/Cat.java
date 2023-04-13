@@ -6,26 +6,26 @@ package com.javarush.test.level06.lesson11.home02;
 3. Метод printCats должен выводить всех котов на экран. Нужно использовать переменную cats.
 */
 
+import java.util.ArrayList;
+
 class Cat {
-  // напишите код здесь:
 
+    public static ArrayList<Cat> cats = new ArrayList<>();
 
-  public Cat(){
-    // напишите код здесь:
+    public Cat() {
+        cats.add(this);
+    }
 
+    private static void printCats() {
+        for (Cat cat : cats) {
+            System.out.println(cat);
+        }
+    }
 
-  }
-
-  private static void printCats() {
-    // напишите код здесь:
-
-
-  }
-
-  public static void main(String[] args) {
-    // напишите код здесь:
-
-
-
-  }
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            new Cat();
+        }
+        printCats();
+    }
 }
