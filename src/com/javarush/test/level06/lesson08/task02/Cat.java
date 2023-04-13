@@ -7,14 +7,17 @@ package com.javarush.test.level06.lesson08.task02;
 
 class Cat {
 
-  private static int catCount = 0;
+    private static int catCount = 0;
 
-  public Cat() {
-    catCount++;
-  }
+    public Cat() {
+        catCount++;
+    }
 
-  // напишите код здесь:
+    public static void setCatCount(int catCount) {
+        Cat.catCount = catCount;
+    }
 
-
-
+    public static int getCatCount() {
+        return catCount;
+    }
 }

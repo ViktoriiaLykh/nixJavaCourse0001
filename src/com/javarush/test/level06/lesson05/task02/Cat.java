@@ -5,11 +5,18 @@ package com.javarush.test.level06.lesson05.task02;
 */
 
 class Cat {
-  // напишите код здесь:
+    protected void finalize() throws Throwable
+    {
+        System.out.println("Cat is destroyed");
+    }
 
 }
 
 class Dog {
-  // напишите код здесь:
+    protected void finalize() throws Throwable
+    {
+        System.out.println("Dog is destroyed");
+    }
+
 
 }

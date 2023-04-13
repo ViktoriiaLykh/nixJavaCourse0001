@@ -10,12 +10,10 @@ class Cat {
   private static int catCount = 0;
 
   public Cat() {
-    // напишите код здесь:
-
-  }
+    catCount++;
+    }
 
   protected void finalize() {
-    // напишите код здесь:
-
+    catCount--;
   }
 }

@@ -5,7 +5,8 @@ package com.javarush.test.level06.lesson05.task01;
 */
 
 class Cat {
-  // напишите код здесь:
-
+    protected void finalize() throws Throwable{
+    }
 }
+
 

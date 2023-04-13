@@ -7,7 +7,10 @@ Java-машина должна начать уничтожать неиспол�
 
 class Solution {
   public static void main(String[] args) {
-    // напишите код здесь:
+    for (int i = 0; i < 150000 ; i++) {
+      Cat cat = new Cat();
+      Dog dog = new Dog();
+    }
 
 
 

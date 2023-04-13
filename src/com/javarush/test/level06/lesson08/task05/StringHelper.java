@@ -9,7 +9,15 @@ String multiply(String s) – возвращает строку повторен
 */
 
 class StringHelper {
-  // напишите код здесь:
+    public static void multiply(String s, int count) {
+        for (int i = 0; i < count; i++) {
+            System.out.print(s);
+        }
 
+    }
 
+    public static void multiply(String s) {
+        multiply(s, 5);
+    }
 }
+
