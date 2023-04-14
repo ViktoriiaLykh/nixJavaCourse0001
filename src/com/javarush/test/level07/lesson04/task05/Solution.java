@@ -8,10 +8,32 @@ package com.javarush.test.level07.lesson04.task05;
 5. Вывести второй маленький массив на экран, каждое значение выводить с новой строки.
 */
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 class Solution {
-  // напишите код здесь:
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int[] mainList = new int[20];
+        for ( int i = 0; i < 20; i++) {
+            String s = reader.readLine();
+            mainList[i] = Integer.parseInt(s);
+        }
+        int[] list1 = new int[10];
+        int[] list2 = new int[10];
+
+        for (int i = 0; i < list1.length; i++) {
+            list1[i] = mainList[i];
+        }
+        for (int i = 0; i < list2.length; i++) {
+            list2[i] = mainList[i + 10];
+            System.out.println(list2[i]);
+        }
 
 
+    }
 
 
 }

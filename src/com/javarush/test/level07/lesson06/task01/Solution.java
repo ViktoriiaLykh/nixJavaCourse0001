@@ -7,8 +7,22 @@ package com.javarush.test.level07.lesson06.task01;
 4. Используя цикл выведи его содержимое на экран, каждое значение с новой строки.
 */
 
+import java.util.ArrayList;
+
 class Solution {
-  // напишите код здесь:
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        list.add("5");
+        System.out.println(list.size());
+
+        for (String s : list) {
+            System.out.println(s);
+        }
+    }
 
 
 }

@@ -13,22 +13,31 @@ import java.io.InputStreamReader;
 
 class Solution {
 
-  public static void main(String[] args) throws Exception {
-    int[] array = initializeArray();
-    int max = max(array);
-    System.out.println(max);
-  }
+    public static void main(String[] args) throws Exception {
+        int[] array = initializeArray();
+        int max = max(array);
+        System.out.println(max);
+    }
 
-  private static int[] initializeArray() throws IOException {
-    // напишите код здесь:
+    private static int[] initializeArray() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int[] list = new int[20];
 
+        for (int i = 0; i < list.length; i++) {
+            String s = reader.readLine();
+            list[i] = Integer.parseInt(s);
+        }
 
-  }
+        return list;
+    }
 
-  private static int max(int[] array) {
-    // напишите код здесь:
-
-
-
-  }
+    private static int max(int[] array) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
 }

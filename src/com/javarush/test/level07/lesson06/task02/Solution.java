@@ -9,8 +9,25 @@ package com.javarush.test.level07.lesson06.task02;
 Например, если удалить 0-й элемент, то тот, который был 1-м, станет 0-м. И т.д.)
 */
 
+import java.util.ArrayList;
+
 class Solution {
-  // напишите код здесь:
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("101");
+        list.add("102");
+        list.add("103");
+        list.add("104");
+        list.add("105");
+        list.remove(0);
+        list.remove(1);
+        list.remove(list.size() - 1);
+
+        for (String s : list) {
+            System.out.println(s);
+        }
+        System.out.println(list.size());
+    }
 
 
 
