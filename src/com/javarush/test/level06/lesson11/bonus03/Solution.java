@@ -25,14 +25,28 @@ class Solution {
     public static void main(String[] args) throws IOException {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int[] numbers = new int[5];
+        int a[] = new int[5];
+        int buf;
+
 
         for (int i = 0; i < 5; i++) {
-            numbers[i] = Integer.parseInt(reader.readLine());
+            a[i] = Integer.parseInt(reader.readLine());
         }
-        Arrays.sort(numbers);
-        for (int i = 0; i < 5; i++) {
-            System.out.println(numbers[i]);
+        int i;
+
+        for (i = 0; i < 5; i++) {
+
+
+            for (int j = 0; j < 5; j++) {
+                if (a[i] < a[j]) {
+                    buf = a[j];
+                    a[j] = a[i];
+                    a[i] = buf;
+                }
+            }
+        }
+        for (i = 0; i < 5; i++) {
+            System.out.println(a[i]);
         }
     }
 }
