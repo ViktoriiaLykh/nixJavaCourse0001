@@ -10,7 +10,7 @@ class Solution {
         String a = "日";
         String b = "本";
         String c = "語";
-        System.out.println(a + b + c);
+        System.out.println(a + b + c); //TODO не усложняй - правило KISS:  System.out.println("日本語");
     }
 
 }
