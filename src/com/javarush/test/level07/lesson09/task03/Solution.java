@@ -6,8 +6,23 @@ package com.javarush.test.level07.lesson09.task03;
 3. Используя цикл for вывести результат на экран, каждый элемент списка с новой строки.
 */
 
+import java.util.ArrayList;
+
 class Solution {
-  // напишите код здесь:
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("мама ");
+        list.add("именно ");
+        list.add("мыла ");
+        list.add("именно ");
+        list.add("раму ");
+        list.add("именно ");
+
+
+        for (String s : list) {
+            System.out.println(s);
+        }
+    }
 
 
 }

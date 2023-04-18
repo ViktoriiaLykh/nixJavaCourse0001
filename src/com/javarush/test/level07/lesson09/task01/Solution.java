@@ -1,6 +1,9 @@
 package com.javarush.test.level07.lesson09.task01;
 
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,16 +18,43 @@ import java.util.List;
 
 class Solution {
 
-  public static void main(String[] args) throws Exception {
-    // напишите код здесь:
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> dividesBy3 = new ArrayList<>();
+        ArrayList<Integer> dividesBy2 = new ArrayList<>();
+        ArrayList<Integer> undivided = new ArrayList<>();
 
 
+        for (int i = 0; i < 20; i++) {
+            String s = reader.readLine();
+            int x = Integer.parseInt(s);
+            list.add(x);
+        }
 
-  }
+        for (Integer x : list) {
+            if (x % 3 == 0 && x % 2 == 0) {
+                dividesBy3.add(x);
+                dividesBy2.add(x);
+            } else if (x % 3 == 0) {
+                dividesBy3.add(x);
+            } else if (x % 2 == 0) {
+                dividesBy2.add(x);
+            } else {
+                undivided.add(x);
+            }
+        }
 
-  private static void printList(List<Integer> list) {
-    // напишите код здесь:
+        printList(dividesBy3);
+        printList(dividesBy2);
+        printList(undivided);
+    }
 
+    private static void printList(List<Integer> list) {
+        for (Integer x : list) {
+            System.out.println(x);
+        }
 
-  }
+    }
 }

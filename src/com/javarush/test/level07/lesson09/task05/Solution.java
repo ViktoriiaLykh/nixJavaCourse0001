@@ -1,5 +1,8 @@
 package com.javarush.test.level07.lesson09.task05;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /* Удвой слова
@@ -10,19 +13,23 @@ import java.util.ArrayList;
 
 class Solution {
 
-  public static void main(String[] args) {
-    // напишите код здесь:
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            String s = reader.readLine();
+            list.add(s);
+        }
+        System.out.println(doubleValues(list));
 
+    }
 
-
-
-  }
-
-  private static ArrayList<String> doubleValues(ArrayList<String> list) {
-    // напишите код здесь:
-
-
-
-    return list;
-  }
+    private static ArrayList<String> doubleValues(ArrayList<String> list) {
+        for (int i = 0; i < list.size(); i++) {
+            String s = list.get(i);
+            list.add(i, s);
+            i++;
+        }
+        return list;
+    }
 }

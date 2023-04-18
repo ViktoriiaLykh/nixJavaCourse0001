@@ -20,20 +20,30 @@ import java.util.ArrayList;
 
 class Solution {
 
-  public static void main(String[] args) throws Exception {
-    // напишите код здесь:
+    public static void main(String[] args) throws Exception {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("роза");
+        list.add("лира");
+        list.add("лоза");
 
+        System.out.println(fix(list));
+    }
 
+    private static ArrayList<String> fix(ArrayList<String> list) {
+        for (int i = 0; i < list.size(); i++) {
+            String s = list.get(i);
+            if (s.contains("р") && s.contains("л")) {
+                continue;
+            }
 
-  }
-
-  private static ArrayList<String> fix(ArrayList<String> list) {
-    // напишите код здесь:
-
-
-
-
-
-    return list;
-  }
+            if (s.contains("р")) {
+                i--;
+                list.remove(s);
+            } else if (s.contains("л")) {
+                i++;
+                list.add(i, s);
+            }
+        }
+        return list;
+    }
 }

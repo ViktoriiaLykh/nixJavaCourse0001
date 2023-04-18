@@ -33,9 +33,17 @@ class Solution {
             }
             list.add(s);
         }
-
-        for (String element : list) {
-            System.out.println(element.toUpperCase());
+        for (int i = 0; i < list.size(); i++) {
+            String s = list.get(i);
+            if (s.length() % 2 == 0) {
+                list.add(i, s);
+                i++;
+            } else {
+                list.add(i, s);
+                list.add(i, s);
+                i += 2;
+            }
         }
+        System.out.println(list);
     }
 }
