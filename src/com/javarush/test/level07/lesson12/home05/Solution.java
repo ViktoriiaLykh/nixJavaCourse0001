@@ -14,7 +14,17 @@ Thread.sleep(100); //задержка на одну десятую секунд�
 */
 
 class Solution {
-  // напишите код здесь:
+    public static void main(String[] args) throws InterruptedException {
+        int count = 30;
+
+        while (count >= 0){
+            System.out.println(count);
+            Thread.sleep(100);
+            count--;
+        }
+
+        System.out.println("Бум!");
+    }
 
 
 }

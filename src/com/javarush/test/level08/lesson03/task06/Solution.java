@@ -1,6 +1,7 @@
 package com.javarush.test.level08.lesson03.task06;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /* Коллекция HashMap из Object
 Есть коллекция HashMap<String, Object>, туда занесли 10 различных пар объектов.
@@ -23,7 +24,11 @@ class Solution {
     map.put("Gevey", '6');
     map.put("Hugs", 111111111111L);
 
-    // напишите код здесь:
+   for (Map.Entry<String, Object> pair : map.entrySet()){
+     String key = pair.getKey();
+     Object value = pair.getValue();
+     System.out.println(key + " - " + value);
+   }
 
 
 
