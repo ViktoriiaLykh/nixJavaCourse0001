@@ -7,10 +7,30 @@ package com.javarush.test.level08.lesson03.task03;
 Вывести результат на экран, каждый элемент с новой строки.
 */
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
 
   public static void main(String[] args) {
-    // напишите код здесь:
+    HashMap<String, Cat> cats = new HashMap<>();
+    cats.put("Макс", new Cat("Макс"));
+    cats.put("Белла", new Cat("Белла"));
+    cats.put("Чарли", new Cat("Чарли"));
+    cats.put("Луи", new Cat("Луи"));
+    cats.put("Симба", new Cat("Симба"));
+    cats.put("Китти", new Cat("Китти"));
+    cats.put("Мистер Мур", new Cat("Мистер Мур"));
+    cats.put("Арчи", new Cat("Арчи"));
+    cats.put("Миттенс", new Cat("Миттенс"));
+    cats.put("Гизмо", new Cat("Гизмо"));
+
+    for (Map.Entry<String, Cat> pair : cats.entrySet()) {
+      String key = pair.getKey();
+      Cat value = pair.getValue();
+      System.out.println(key + " " + value);
+    }
 
 
   }

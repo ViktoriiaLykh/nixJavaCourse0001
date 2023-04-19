@@ -7,8 +7,27 @@ package com.javarush.test.level08.lesson03.task01;
 Посмотреть, как изменился порядок добавленных элементов.
 */
 
+import java.util.HashSet;
+import java.util.Set;
+
 class Solution {
-  // напишите код здесь:
+    public static void main(String[] args) {
+        Set<String> set = new HashSet<String>();
+        set.add("арбуз");
+        set.add("банан");
+        set.add("вишня");
+        set.add("груша");
+        set.add("дыня");
+        set.add("ежевика");
+        set.add("жень-шень");
+        set.add("земляника");
+        set.add("ирис");
+        set.add("картофель");
+
+        for (String s : set) {
+            System.out.println(s);
+        }
+    }
 
 
 }
