@@ -7,8 +7,23 @@ package com.javarush.test.level08.lesson11.home03;
 4. Вывести содержимое Map на экран.
 */
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
-  // напишите код здесь:
+    public static void main(String[] args) {
+        Map<String, String> map = new HashMap<>();
+        map.put("Шелест", "Александр");
+        map.put("Лихвар", "Андрей");
+        map.put("Сергеевич", "Андрей");
+        map.put("Пирожков", "Артур");
+        map.put("Шелест", "Антон");
+        map.put("Батрудинов", "Тимур");
+        map.put("Шелест", "Кристина");
+        map.put("Батькович", "Александр");
+        map.put("Александров", "Максим");
+        map.put("Сапсан", "Инокентий");
+        System.out.println(map);
 
-
+    }
 }

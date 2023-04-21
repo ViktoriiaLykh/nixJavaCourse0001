@@ -8,8 +8,8 @@ class Solution {
 
     public static void main(String[] args) {
 
-        int v;
-        for (v = 0; v < 5; v++) {
+
+        for ( int v = 0; v < 5; v++) {
             System.out.println("Вика Вика Вика Вика Вика Вика Вика Вика Вика Вика ");
 
         }

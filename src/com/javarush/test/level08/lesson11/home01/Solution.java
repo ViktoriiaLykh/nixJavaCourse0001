@@ -7,7 +7,35 @@ package com.javarush.test.level08.lesson11.home01;
 4. Реализовать метод printCats, он должен вывести на экран всех котов, которые остались во множестве. Каждый кот с новой строки.
 */
 
+import java.util.HashSet;
+import java.util.Set;
+
 class Solution {
-  // напишите код здесь:
+
+    public static void main(String[] args) {
+        Set<Cat> cats = Cat.createCats();
+
+        cats.remove(new Cat());
+
+        printCats(cats);
+    }
+
+    private static void printCats(Set<Cat> cats) {
+        for (Cat cat : cats) {
+            System.out.println(cat);
+        }
+    }
+
+    public static class Cat {
+
+        public static Set<Cat> createCats() {
+            Set<Cat> catSet = new HashSet<>();
+            for (int i = 0; i < 3; i++) {
+                catSet.add(new Cat());
+            }
+            return catSet;
+        }
+    }
+
 
 }

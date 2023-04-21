@@ -12,32 +12,33 @@ import java.util.List;
 
 class Solution {
 
-  public static void main(String[] args) {
-    System.out.println(getTimeMsOfGet(fill(new ArrayList<>())));
-    System.out.println(getTimeMsOfGet(fill(new LinkedList<>())));
-  }
-
-  private static List<Object> fill(List<Object> list) {
-    for (int i = 0; i < 11; i++) {
-      list.add(new Object());
+    public static void main(String[] args) {
+        System.out.println(getTimeMsOfGet(fill(new ArrayList<>())));
+        System.out.println(getTimeMsOfGet(fill(new LinkedList<>())));
     }
-    return list;
-  }
 
-  private static long getTimeMsOfGet(List<Object> list) {
-    // напишите код здесь:
-
-
-  }
-
-  private static void get10000(List<Object> list) {
-    if (list.isEmpty()) {
-      return;
+    private static List<Object> fill(List<Object> list) {
+        for (int i = 0; i < 11; i++) {
+            list.add(new Object());
+        }
+        return list;
     }
-    int x = list.size() / 2;
-    for (int i = 0; i < 10000; i++) {
-      //noinspection ResultOfMethodCallIgnored
-      list.get(x);
+
+    private static long getTimeMsOfGet(List<Object> list) {
+        Date currentTime = new Date();
+        get10000(list);
+        Date newDate = new Date();
+        return newDate.getTime() - currentTime.getTime();
     }
-  }
+
+    private static void get10000(List<Object> list) {
+        if (list.isEmpty()) {
+            return;
+        }
+        int x = list.size() / 2;
+        for (int i = 0; i < 10000; i++) {
+            //noinspection ResultOfMethodCallIgnored
+            list.get(x);
+        }
+    }
 }

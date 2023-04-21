@@ -12,24 +12,19 @@ import java.util.List;
 
 class Solution {
 
-  public static List getListForGet() {
-    // напишите код здесь:
+    public static List getListForGet() {
+        return new ArrayList();
+    }
 
-  }
+    public static List getListForSet() {
+        return new ArrayList<>();
+    }
 
-  public static List getListForSet() {
-    // напишите код здесь:
+    public static List getListForAddOrInsert() {
+        return new LinkedList();
+    }
 
-  }
-
-  public static List getListForAddOrInsert() {
-    // напишите код здесь:
-
-  }
-
-  public static List getListForRemove() {
-    // напишите код здесь:
-
-
-  }
+    public static List getListForRemove() {
+        return new LinkedList();
+    }
 }
