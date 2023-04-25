@@ -13,9 +13,10 @@ class Solution {
         } catch (Exception e) {
         }
     }
-    public static int sleep () throws InterruptedException {
+
+    public static int sleep() throws InterruptedException {
         int i = 10;
-        for ( i = 10; i > 0; i--) {
+        for (i = 10; i > 0; i--) {
             System.out.println(i);
             Thread.sleep(100);
         }

@@ -33,11 +33,11 @@ class Solution {
 
         for (int i = 0; i < string.length(); i++) {
             char c = string.charAt(i);
-            if (c == 'а' || c == 'о' || c == 'и' || c == 'ы' || c == 'у' || c == 'э' ||  c == 'е' || c == 'ю' ||
-                    c == 'А' || c == 'О' || c == 'И' || c == 'Ы' || c == 'У' || c == 'Э' ||  c == 'Е' || c == 'Ю') {
+            if (c == 'а' || c == 'о' || c == 'и' || c == 'ы' || c == 'у' || c == 'э' || c == 'е' || c == 'ю' ||
+                    c == 'А' || c == 'О' || c == 'И' || c == 'Ы' || c == 'У' || c == 'Э' || c == 'Е' || c == 'Ю') {
                 vowels.add(c);
-            } else if (c == ' '){}
-           else  {
+            } else if (c == ' ') {
+            } else {
                 consonantOrPunctuation.add(c);
             }
         }
