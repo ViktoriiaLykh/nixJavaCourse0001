@@ -6,6 +6,18 @@ package com.javarush.test.level09.lesson11.home01;
 */
 
 class Solution {
-  // напишите код здесь:
+    public static void main(String[] args) {
+        try {
+            divisionByZero(15);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    public static void divisionByZero(int a) {
+        int b = 0;
+        int result = a / b;
+        System.out.println(result);
+    }
 
 }

@@ -7,6 +7,14 @@ String m = s.toLowerCase();
 */
 
 class Solution {
-    // напишите код здесь:
+    public static void main(String[] args) {
+       try {
+           String s = null;
+           String m = s.toLowerCase();
+       } catch (Exception e) {
+           System.out.println(e.getClass());
+       }
+    }
+
 
 }

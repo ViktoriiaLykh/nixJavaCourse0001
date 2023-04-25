@@ -6,7 +6,16 @@ int a = 42 / 0;
 */
 
 class Solution {
-    // напишите код здесь:
+    public static void main(String[] args) {
+
+        try {
+            int a = 42 / 0;
+        } catch (ArithmeticException exception) {
+            System.out.println(exception.getClass());
+        }
+
+    }
+
 
 
 }

@@ -6,7 +6,16 @@ ArrayList<String> list = new ArrayList<String>();
 String s = list.get(18);
 */
 
+import java.util.ArrayList;
+
 class Solution {
-    // напишите код здесь:
+    public static void main(String[] args) {
+        try {
+            ArrayList<String> list = new ArrayList<String>();
+            String s = list.get(18);
+        } catch (Exception e) {
+            System.out.println(e.getClass());
+        }
+    }
 
 }

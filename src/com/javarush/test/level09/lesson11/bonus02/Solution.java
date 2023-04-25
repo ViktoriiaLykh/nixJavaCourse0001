@@ -1,10 +1,6 @@
 package com.javarush.test.level09.lesson11.bonus02;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 /* Нужно добавить в программу новую функциональность
 Задача: Программа вводит два имени файла. И копирует первый файл на место, заданное вторым именем.
@@ -22,8 +18,15 @@ class Solution {
 
         String sourceFileName;
         FileInputStream fileInputStream;
-        sourceFileName = reader.readLine();
-        fileInputStream = new FileInputStream(sourceFileName);
+        try {
+            sourceFileName = reader.readLine();
+            fileInputStream = new FileInputStream(sourceFileName);
+        } catch (FileNotFoundException exception) {
+            System.out.println("Файл не существует");
+            sourceFileName = reader.readLine();
+            fileInputStream = new FileInputStream(sourceFileName);
+        }
+
         String destinationFileName = reader.readLine();
         FileOutputStream fileOutputStream = new FileOutputStream(destinationFileName);
 

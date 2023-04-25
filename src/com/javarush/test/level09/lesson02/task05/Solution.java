@@ -5,8 +5,15 @@ package com.javarush.test.level09.lesson02.task05;
 */
 
 class Solution {
-  // напишите код здесь:
 
+    public static void main(String[] args) {
+        func1();
+    }
 
-
+    public static int func1() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        int length = stackTrace.length;
+        System.out.println(length);
+        return length;
+    }
 }

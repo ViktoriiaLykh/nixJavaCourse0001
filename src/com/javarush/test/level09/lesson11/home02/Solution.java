@@ -6,6 +6,19 @@ package com.javarush.test.level09.lesson11.home02;
 */
 
 class Solution {
-  // напишите код здесь:
 
+    public static void main(String[] args) throws InterruptedException {
+        try {
+            sleep();
+        } catch (Exception e) {
+        }
+    }
+    public static int sleep () throws InterruptedException {
+        int i = 10;
+        for ( i = 10; i > 0; i--) {
+            System.out.println(i);
+            Thread.sleep(100);
+        }
+        return i;
+    }
 }
