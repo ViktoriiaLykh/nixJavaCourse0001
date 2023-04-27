@@ -4,8 +4,8 @@ package com.javarush.test.level11.lesson11.bonus03;
 Написать метод, который возвращает минимальное и максимальное числа в массиве.
 */
 
-classpublic static void main(String[] args) throws Exception
-    {
+class Solution {
+    public static void main(String[] args) throws Exception {
         int[] data = new int[]{1, 2, 3, 5, -2, -8, 0, 77, 5, 5};
 
         Pair<Integer, Integer> result = getMinimumAndMaximum(data);
@@ -14,30 +14,33 @@ classpublic static void main(String[] args) throws Exception
         System.out.println("Maximum is " + result.y);
     }
 
-    public static Pair<Integer, Integer> getMinimumAndMaximum(int[] array)
-    {
-        if (array == null || array.length == 0)
-        {
-            return new Pair<Integer, Integer>(null, null);
+    public static Pair<Integer, Integer> getMinimumAndMaximum(int[] array) {
+        if (array == null || array.length == 0) {
+            return new Pair<>(null, null);
         }
 
-        //Напишите тут ваше решение
+        int buf = 0;
+        boolean isWork = false;
+        while (!isWork) {
+            isWork = true;
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i] > array[i + 1]) {
+                    isWork = false;
+                    buf = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = buf;
+                }
+            }
+        }
 
-		
-		
-		
-		
-        return new Pair<Integer, Integer>(array[0], array[array.length - 1]);
+        return new Pair<>(array[0], array[array.length - 1]);
     }
 
-
-    public static class Pair<X, Y>
-    {
+    public static class Pair<X, Y> {
         public X x;
         public Y y;
 
-        public Pair(X x, Y y)
-        {
+        public Pair(X x, Y y) {
             this.x = x;
             this.y = y;
         }

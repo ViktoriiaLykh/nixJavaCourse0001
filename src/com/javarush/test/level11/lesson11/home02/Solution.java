@@ -6,6 +6,11 @@ package com.javarush.test.level11.lesson11.home02;
 */
 
 class Solution {
-  // напишите код здесь:
+
+    public static class OnePlus extends Samsung{
+    }
+
+    public static class Samsung{
+    }
 
 }

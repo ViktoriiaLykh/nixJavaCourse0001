@@ -6,7 +6,12 @@ package com.javarush.test.level11.lesson11.home01;
 */
 
 class Solution {
-  // напишите код здесь:
+
+    public static class Adam {
+    }
+
+    public static class Eve extends Adam {
+    }
 
 
 }

@@ -6,6 +6,16 @@ package com.javarush.test.level11.lesson06.task04;
 */
 
 class Solution {
-  // напишите код здесь:
 
+    public static class Worker {
+    }
+
+    public static class Manager extends Worker {
+    }
+
+    public static class Chief extends Worker {
+    }
+
+    public static class Secretary extends Worker {
+    }
 }

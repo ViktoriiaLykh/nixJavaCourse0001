@@ -7,23 +7,23 @@ Carnivora (плотоядное животное), Cow (корова), Dog(со�
 
 class Solution {
 
-  class Carnivora {
+    class Carnivora extends Animal {
 
-  }
+    }
 
-  private class Cow {
+    private class Cow extends Animal {
 
-  }
+    }
 
-  private class Dog {
+    private class Dog extends Carnivora {
 
-  }
+    }
 
-  private class Pig {
+    private class Pig extends Animal {
 
-  }
+    }
 
-  class Animal {
+    class Animal {
 
-  }
+    }
 }

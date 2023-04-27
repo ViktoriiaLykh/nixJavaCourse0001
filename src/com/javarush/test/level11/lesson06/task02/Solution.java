@@ -6,6 +6,13 @@ package com.javarush.test.level11.lesson06.task02;
 */
 
 class Solution {
-  // напишите код здесь:
+    public static class Pet {
+    }
+
+    public static class Cat extends Pet {
+    }
+
+    public static class Dog extends Pet {
+    }
 
 }

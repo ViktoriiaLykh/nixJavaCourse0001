@@ -6,19 +6,19 @@ package com.javarush.test.level11.lesson11.home08;
 
 class Solution {
 
-  class Pet {
+    class Pet {
 
-  }
+    }
 
-  private class Cat {
+    private class Cat extends Pet {
 
-  }
+    }
 
-  private class Car {
+    private class Car {
 
-  }
+    }
 
-  private class Dog {
+    private class Dog extends Pet {
 
-  }
+    }
 }

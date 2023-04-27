@@ -6,28 +6,32 @@ package com.javarush.test.level11.lesson11.bonus02;
 
 class Solution {
 
+    public class Figure {
 
-  private class King {
+    }
 
-  }
 
-  private class Queen {
+    private class King extends Figure {
 
-  }
+    }
 
-  private class Rook {
+    private class Queen extends Figure {
 
-  }
+    }
 
-  private class Knight {
+    private class Rook extends Figure {
 
-  }
+    }
 
-  private class Bishop {
+    private class Knight extends Figure {
 
-  }
+    }
 
-  private class Pawn {
+    private class Bishop extends Figure {
 
-  }
+    }
+
+    private class Pawn extends Figure {
+
+    }
 }

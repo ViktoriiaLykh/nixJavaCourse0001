@@ -6,6 +6,22 @@ package com.javarush.test.level11.lesson06.task03;
 */
 
 class Solution {
-  // напишите код здесь:
+    public static class Animal {
+    }
+
+    public static class Cow extends Animal {
+    }
+
+    public static class Pig extends Animal {
+    }
+
+    public static class Sheep extends Animal {
+    }
+
+    public static class Bull extends Animal {
+    }
+
+    public static class Goat extends Animal {
+    }
 
 }

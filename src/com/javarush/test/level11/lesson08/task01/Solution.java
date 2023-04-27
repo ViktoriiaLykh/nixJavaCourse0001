@@ -6,19 +6,19 @@ package com.javarush.test.level11.lesson08.task01;
 
 class Solution {
 
-  class Cat {
+    class Cat {
 
-    String name;
-    int age;
-    int weight;
+        private String name;
+        private int age;
+        private int weight;
 
-    public Cat() {
+        public Cat() {
+        }
+
+        public Cat(String name, int age, int weight) {
+            this.name = name;
+            this.age = age;
+            this.weight = weight;
+        }
     }
-
-    public Cat(String name, int age, int weight) {
-      this.name = name;
-      this.age = age;
-      this.weight = weight;
-    }
-  }
 }

@@ -6,6 +6,16 @@ package com.javarush.test.level11.lesson11.home05;
 */
 
 class Solution {
-  // напишите код здесь:
+    public static class Schoolboy {
+    }
+
+    public static class Student extends Schoolboy {
+    }
+
+    public static class Worker extends Student {
+    }
+
+    public static class Slave extends Worker {
+    }
 
 }

@@ -6,7 +6,11 @@ package com.javarush.test.level11.lesson06.task01;
 */
 
 class Solution {
-  // напишите код здесь:
 
+    public static class Horse {
+    }
+
+    public static class Pegas extends Horse {
+    }
 
 }

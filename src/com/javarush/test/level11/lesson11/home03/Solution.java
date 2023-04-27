@@ -6,6 +6,17 @@ package com.javarush.test.level11.lesson11.home03;
 */
 
 class Solution {
-  // напишите код здесь:
+
+    public static class Fish {
+    }
+
+    public static class Animal extends Fish {
+    }
+
+    public static class Ape extends Animal {
+    }
+
+    public static class Human extends Ape {
+    }
 
 }

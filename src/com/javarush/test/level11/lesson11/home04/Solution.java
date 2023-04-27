@@ -6,6 +6,14 @@ package com.javarush.test.level11.lesson11.home04;
 */
 
 class Solution {
-  // напишите код здесь:
+
+    public static class Judaism {
+    }
+
+    public static class Christianity extends Judaism {
+    }
+
+    public static class Islam extends Christianity {
+    }
 
 }
