@@ -13,6 +13,14 @@ package com.javarush.test.level10.lesson11.home04;
 */
 
 class Solution {
-  // напишите код здесь:
-
+    public static void main(String[] args) {
+        String s = "Я не хочу изучать Java, я хочу большую зарплату";
+        char[] string = s.toCharArray();
+        for (int j = 0; j < 40; j++) {
+            for (int i = j % string.length; i < string.length - 1; i++) {
+                System.out.print(string[i]);
+            }
+            System.out.println();
+        }
+    }
 }

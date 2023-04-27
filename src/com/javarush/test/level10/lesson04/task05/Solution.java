@@ -9,10 +9,9 @@ short nineCode = zero + number;
 
 class Solution {
 
-  public static void main(String[] args) {
-    // напишите код здесь:
-
-
-
-  }
+    public static void main(String[] args) {
+        short number = 9;
+        char zero = '0';
+        short nineCode = (short) (zero + number);
+    }
 }

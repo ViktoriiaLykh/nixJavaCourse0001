@@ -13,7 +13,42 @@ package com.javarush.test.level10.lesson11.bonus03;
 Четвертое минимальное – 6
 */
 
-class Solution {
-  // напишите код здесь:
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
+class Solution {
+    public static void main(String[] args) throws IOException {
+        int[] list = fillList();
+        sortList(list);
+
+        System.out.println(list[9] + " " + list[10]);
+    }
+
+    public static int[] fillList() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        int[] list = new int[29];
+        for (int i = 0; i < list.length; i++) {
+            int input = Integer.parseInt(reader.readLine());
+            list[i] = input;
+        }
+        return list;
+    }
+
+    public static void sortList(int[] listList) {
+        int buf = 0;
+        boolean isWork = false;
+        while (!isWork) {
+            isWork = true;
+            for (int i = 0; i < listList.length - 1; i++) {
+                if (listList[i] > listList[i + 1]) {
+                    isWork = false;
+                    buf = listList[i];
+                    listList[i] = listList[i + 1];
+                    listList[i + 1] = buf;
+                }
+            }
+        }
+    }
 }

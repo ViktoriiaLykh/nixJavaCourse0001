@@ -11,7 +11,9 @@ int d = a / c;
 class Solution {
 
     public static void main(String[] args) {
-        // напишите код здесь:
-
+        byte a = (byte) 1234;
+        int b = a;
+        byte c = (byte) (a *  a);
+        int d = a / c;
     }
 }

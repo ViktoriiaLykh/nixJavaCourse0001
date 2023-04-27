@@ -10,12 +10,10 @@ double d = a * 1e-3;
 
 class Solution {
 
-  public static void main(String[] args) {
-    // напишите код здесь:
-
-
-
-
-
-  }
+    public static void main(String[] args) {
+        int a = 15;
+        int b = 4;
+        float c = (float) (a / (double) b);
+        double d = a * 1e-3;
+    }
 }
