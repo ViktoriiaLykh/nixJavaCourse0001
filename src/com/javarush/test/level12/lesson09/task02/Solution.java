@@ -6,7 +6,17 @@ package com.javarush.test.level12.lesson09.task02;
 */
 
 class Solution {
-  // напишите код здесь:
+    public interface Fly {
+        void moveWings();
+    }
+
+    public interface Run {
+        void moveLegs();
+    }
+
+    public interface Swim {
+        void moveHands();
+    }
 
 
 }

@@ -8,38 +8,47 @@ package com.javarush.test.level12.lesson12.home04;
 
 class Solution {
 
-  public static void main(String[] args) {
-    System.out.println(getObjectType(new Cat()));
-    System.out.println(getObjectType(new Tiger()));
-    System.out.println(getObjectType(new Lion()));
-    System.out.println(getObjectType(new Bull()));
-    System.out.println(getObjectType(new Pig()));
-  }
+    public static void main(String[] args) {
+        System.out.println(getObjectType(new Cat()));
+        System.out.println(getObjectType(new Tiger()));
+        System.out.println(getObjectType(new Lion()));
+        System.out.println(getObjectType(new Bull()));
+        System.out.println(getObjectType(new Pig()));
+    }
 
-  private static String getObjectType(Object o) {
-    // напишите код здесь:
+    private static String getObjectType(Object o) {
+        String s = "";
+        if (o instanceof Cat) {
+            s = "Кот";
+        } else if (o instanceof Tiger) {
+            s = "Тигр";
+        } else if (o instanceof Lion) {
+            s = "Лев";
+        } else if (o instanceof Bull) {
+            s = "Бык";
+        } else {
+            s = "хз";
+        }
+        return s;
+    }
 
+    static class Cat {
 
+    }
 
-  }
+    private static class Tiger {
 
-  static class Cat {
+    }
 
-  }
+    private static class Lion {
 
-  private static class Tiger {
+    }
 
-  }
+    private static class Bull {
 
-  private static class Lion {
+    }
 
-  }
+    private static class Pig {
 
-  private static class Bull {
-
-  }
-
-  private static class Pig {
-
-  }
+    }
 }

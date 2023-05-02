@@ -7,38 +7,72 @@ package com.javarush.test.level12.lesson09.task03;
 
 public class Solution {
 
-  interface Fly {
+    interface Fly {
 
-    void fly();
-  }
+        void fly();
+    }
 
-  interface Run {
+    interface Run {
 
-    void run();
-  }
+        void run();
+    }
 
-  interface Swim {
+    interface Swim {
 
-    void swim();
-  }
+        void swim();
+    }
 
-  public class Dog {
-    // напишите код здесь:
+    public class Dog implements Run, Swim {
+        @Override
+        public void run() {
 
-  }
+        }
 
-  public class Fish  {
-    // напишите код здесь:
+        @Override
+        public void swim() {
 
-  }
+        }
 
-  public class Bird {
-    // напишите код здесь:
+    }
 
-  }
+    public class Fish implements Swim, Fly {
+        @Override
+        public void fly() {
 
-  public class Airplane {
-    // напишите код здесь:
+        }
 
-  }
+        @Override
+        public void swim() {
+
+        }
+
+    }
+
+    public class Bird implements Fly, Run {
+        @Override
+        public void fly() {
+
+        }
+
+        @Override
+        public void run() {
+
+        }
+
+
+    }
+
+    public class Airplane implements Fly, Run {
+        @Override
+        public void fly() {
+
+        }
+
+        @Override
+        public void run() {
+
+        }
+
+
+    }
 }

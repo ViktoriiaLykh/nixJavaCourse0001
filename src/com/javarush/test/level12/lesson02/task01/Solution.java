@@ -7,23 +7,24 @@ package com.javarush.test.level12.lesson02.task01;
 
 class Solution {
 
-  public static void main(String[] args) {
-    Cow cow = new Whale();
+    public static void main(String[] args) {
+        Cow cow = new Whale();
 
-    System.out.println(cow.getName());
-  }
-
-  static class Cow {
-
-    String getName() {
-      return "Я - корова";
+        System.out.println(cow.getName());
     }
-  }
 
-  static class Whale extends Cow {
-    // напишите код здесь:
+    static class Cow {
 
+        String getName() {
+            return "Я - корова";
+        }
+    }
 
-  }
+    static class Whale extends Cow {
+        @Override
+        String getName() {
+            return "Я не корова, Я - кит.";
+        }
+    }
 
 }

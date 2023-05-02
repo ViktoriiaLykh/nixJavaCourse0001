@@ -9,8 +9,17 @@ package com.javarush.test.level12.lesson09.task05;
 
 public class Solution {
 
-  // напишите код здесь:
+    public abstract class Human implements Run, Swim {
 
+    }
+
+    public interface Run {
+        void moveLegs();
+    }
+
+    public interface Swim {
+        void moveHands();
+    }
 
 
 }

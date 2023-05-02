@@ -7,29 +7,29 @@ package com.javarush.test.level12.lesson12.home08;
 
 class Solution {
 
-  public static void main(String[] args) {
-    Human human = new Human();
-    System.out.println(human);
-  }
+    public static void main(String[] args) {
+        Human human = new Human();
+        System.out.println(human);
+    }
 
-  private interface Worker {
+    private interface Worker {
 
-  }
+    }
 
-  private interface Businessman {
+    private interface Businessman {
 
-  }
+    }
 
-  private interface Secretary {
+    private interface Secretary {
 
-  }
+    }
 
-  public interface Miner {
+    public interface Miner {
 
-    void workVeryHard();
-  }
+        void workVeryHard();
+    }
 
-  static class Human  {
+    static class Human implements Secretary, Businessman, Worker {
 
-  }
+    }
 }

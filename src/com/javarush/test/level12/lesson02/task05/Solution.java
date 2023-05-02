@@ -15,11 +15,19 @@ class Solution {
     }
 
     private static String getObjectType(Object o) {
-        // напишите код здесь:
+        String s = "";
+        if (o instanceof Cow) {
+            s = "Корова";
+        } else if (o instanceof Whale) {
+            s = "Кит";
+        } else if (o instanceof Dog) {
+            s = "Собака";
+        } else {
+            s = "Неизвестное животное";
+        }
 
 
-
-        return "";
+        return s;
     }
 
     private static class Cow {

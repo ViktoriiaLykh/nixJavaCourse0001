@@ -7,22 +7,23 @@ package com.javarush.test.level12.lesson12.home01;
 
 class Solution {
 
-  public static void main(String[] args) {
-    Pet pet = new Cat();
+    public static void main(String[] args) {
+        Pet pet = new Cat();
 
-    System.out.println(pet.getName());
-  }
-
-  static class Pet {
-
-    String getName() {
-      return "Я - пушистик";
+        System.out.println(pet.getName());
     }
-  }
 
-  static class Cat extends Pet {
-    // написать тут ваш код
+    static class Pet {
 
+        String getName() {
+            return "Я - пушистик";
+        }
+    }
 
-  }
+    static class Cat extends Pet {
+        @Override
+        String getName() {
+            return "Я - кот";
+        }
+    }
 }

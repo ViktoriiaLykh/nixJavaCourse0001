@@ -14,13 +14,28 @@ public class Solution {
     public abstract Pet getChild();
   }
 
-  public static class Cat {
-    // напишите код здесь:
+  public static class Cat extends Pet{
+    @Override
+    public Pet getChild() {
+      return null;
+    }
 
+    @Override
+    public String getName() {
+      return null;
+    }
   }
 
-  public static class Dog {
-    // напишите код здесь:
+  public static class Dog extends Pet{
+    @Override
+    public Pet getChild() {
+      return null;
+    }
+
+    @Override
+    public String getName() {
+      return null;
+    }
 
   }
 

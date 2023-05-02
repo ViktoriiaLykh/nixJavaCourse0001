@@ -7,34 +7,41 @@ package com.javarush.test.level12.lesson02.task04;
 
 class Solution {
 
-  public static void main(String[] args) {
-    printObjectType(new Cat());
-    printObjectType(new Bird());
-    printObjectType(new Lamp());
-    printObjectType(new Cat());
-    printObjectType(new Dog());
-  }
+    public static void main(String[] args) {
+        printObjectType(new Cat());
+        printObjectType(new Bird());
+        printObjectType(new Lamp());
+        printObjectType(new Cat());
+        printObjectType(new Dog());
+    }
 
-  private static void printObjectType(Object o) {
-    // напишите код здесь:
+    private static void printObjectType(Object o) {
+        if (o instanceof Cat) {
+            System.out.println("Кошка");
+        } else if (o instanceof Bird) {
+            System.out.println("Птица");
+        } else if (o instanceof Dog) {
+            System.out.println("Собака");
+        } else {
+            System.out.println("Лампа");
+        }
 
 
+    }
 
-  }
+    static class Cat {
 
-  static class Cat {
+    }
 
-  }
+    static class Dog {
 
-  static class Dog {
+    }
 
-  }
+    private static class Bird {
 
-  private static class Bird {
+    }
 
-  }
+    private static class Lamp {
 
-  private static class Lamp {
-
-  }
+    }
 }

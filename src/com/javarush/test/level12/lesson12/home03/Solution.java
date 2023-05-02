@@ -31,7 +31,9 @@ class Solution {
   }
 
   static class Cat extends Pet {
-    // напишите код здесь:
+    void doNothing() {
+
+    }
 
   }
 }

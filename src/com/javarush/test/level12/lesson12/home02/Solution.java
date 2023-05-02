@@ -32,7 +32,9 @@ class Solution {
   }
 
   static class Cat extends Pet {
-    // напишите код здесь:
+    String getName () {
+      return "Я - кот";
+    }
 
 
   }

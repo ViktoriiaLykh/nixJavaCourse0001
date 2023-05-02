@@ -5,8 +5,10 @@ package com.javarush.test.level12.lesson09.task01;
 */
 
 class Solution {
+     interface Fly {
+        void takeOff();
 
-  // напишите код здесь:
+        void land();
 
-
+    }
 }
