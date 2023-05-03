@@ -9,7 +9,14 @@ package com.javarush.test.level13.lesson02.task08;
 */
 
 class Solution {
-  // напишите код здесь:
+  public interface Person  {
+       boolean isAlive();
+  }
+
+   interface Presidentable extends Person {
+       @Override
+       boolean isAlive();
+   }
 
 
 }

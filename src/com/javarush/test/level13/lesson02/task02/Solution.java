@@ -16,7 +16,7 @@ public class Solution {
     boolean isAlcoholic();
   }
 
-  public static class Beer {
+  public static class Beer implements Drink{
 
     @Override
     public String toString() {
@@ -27,7 +27,10 @@ public class Solution {
       }
     }
 
-    // напишите код здесь:
+    @Override
+    public boolean isAlcoholic() {
+      return true;
+    }
 
 
 

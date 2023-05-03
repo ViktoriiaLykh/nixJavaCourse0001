@@ -6,12 +6,16 @@ package com.javarush.test.level13.lesson02.task07;
 
 public class Solution {
 
-  interface SimpleObject<T> {
+    interface SimpleObject<T> {
 
-    SimpleObject<T> getInstance();
-  }
+        SimpleObject<T> getInstance();
+    }
 
-  class StringObject {
+    class StringObject implements SimpleObject<String> {
 
-  }
+        @Override
+        public SimpleObject<String> getInstance() {
+            return null;
+        }
+    }
 }

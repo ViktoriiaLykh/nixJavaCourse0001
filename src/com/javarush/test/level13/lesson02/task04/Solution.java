@@ -7,19 +7,28 @@ package com.javarush.test.level13.lesson02.task04;
 
 public class Solution {
 
-  interface Selectable {
+    interface Selectable {
 
-    void onSelect();
-  }
+        void onSelect();
+    }
 
-  interface Updatable {
+    interface Updatable {
 
-    void refresh();
-  }
+        void refresh();
+    }
 
-  // напишите код здесь:
+    public class Screen implements Selectable, Updatable {
 
+        @Override
+        public void onSelect() {
 
+        }
+
+        @Override
+        public void refresh() {
+
+        }
+    }
 
 
 }

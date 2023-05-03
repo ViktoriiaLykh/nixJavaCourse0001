@@ -9,38 +9,40 @@ package com.javarush.test.level13.lesson02.task01;
 
 public class Solution {
 
-  interface Drink {
+    interface Drink {
 
-    void askMore(String message);
+        void askMore(String message);
 
-    void sayThankYou();
+        void sayThankYou();
 
-    @SuppressWarnings("SameReturnValue")
-    boolean isReadyToGoHome();
-  }
-
-  interface Alcohol extends Drink {
-
-    boolean READY_TO_GO_HOME = false;
-
-    void sleepOnTheFloor();
-  }
-
-  public static class Beer {
-
-    public void askMore(String message) {
-      System.out.println("I want more!");
+        @SuppressWarnings("SameReturnValue")
+        boolean isReadyToGoHome();
     }
 
-    public void sayThankYou() {
-      System.out.println("Thank you!");
+    interface Alcohol extends Drink {
+
+        boolean READY_TO_GO_HOME = false;
+
+        void sleepOnTheFloor();
     }
 
-    public boolean isReadyToGoHome() {
-      // напишите код здесь:
+    public static class Beer implements Alcohol {
 
+        public void askMore(String message) {
+            System.out.println("I want more!");
+        }
 
+        public void sayThankYou() {
+            System.out.println("Thank you!");
+        }
+
+        public boolean isReadyToGoHome() {
+            return READY_TO_GO_HOME;
+        }
+
+        @Override
+        public void sleepOnTheFloor() {
+
+        }
     }
-
-  }
 }

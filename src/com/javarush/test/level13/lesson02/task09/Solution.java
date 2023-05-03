@@ -9,6 +9,11 @@ package com.javarush.test.level13.lesson02.task09;
 */
 
 class Solution {
-  // напишите код здесь:
+  interface Movable {
+      public Double speed();
+  }
 
+  interface Runable extends Movable {
+       Double speed(Runable runable);
+  }
 }

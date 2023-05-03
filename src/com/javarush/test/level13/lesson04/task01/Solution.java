@@ -8,13 +8,15 @@ package com.javarush.test.level13.lesson04.task01;
 5. Метод main менять нельзя.
 */
 
+
 public class Solution {
 
   public static void main(String[] args) {
-    //uncomment 2 following rows:
-//    EnglishTranslator englishTranslator = new EnglishTranslator();
-//    System.out.println(englishTranslator.translate());
+    EnglishTranslator englishTranslator = new EnglishTranslator();
+    System.out.println(englishTranslator.translate());
   }
+
+
 
   static abstract class Translator {
 
@@ -26,7 +28,14 @@ public class Solution {
     }
   }
 
-  // напишите код здесь:
+  static class EnglishTranslator extends Translator{
+
+    @Override
+    protected String getLanguage() {
+      return "английского";
+
+    }
+  }
 
 
 

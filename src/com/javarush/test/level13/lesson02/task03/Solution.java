@@ -6,30 +6,36 @@ package com.javarush.test.level13.lesson02.task03;
 
 public class Solution {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    // uncomment following 2 rows
-    print(new Beer());
-    print(new Cola());
+        // uncomment following 2 rows
+        print(new Beer());
+        print(new Cola());
 
-  }
+    }
 
-  private static void print(Drink drink) {
-    System.out.println(drink.getClass().getSimpleName());
-  }
+    private static void print(Drink drink) {
+        System.out.println(drink.getClass().getSimpleName());
+    }
 
-  interface Drink {
+    interface Drink {
 
-    boolean isAlcoholic();
-  }
+        boolean isAlcoholic();
+    }
 
-  public static class Beer {
-    // напишите код здесь:
+    public static class Beer implements Drink {
+        @Override
+        public boolean isAlcoholic() {
+            return true;
+        }
 
-  }
+    }
 
-  public static class Cola {
-    // напишите код здесь:
+    public static class Cola implements Drink {
+        @Override
+        public boolean isAlcoholic() {
+            return false;
+        }
 
-  }
+    }
 }

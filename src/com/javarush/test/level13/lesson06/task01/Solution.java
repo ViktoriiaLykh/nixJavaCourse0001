@@ -9,8 +9,27 @@ package com.javarush.test.level13.lesson06.task01;
 */
 
 class Solution {
-  // напишите код здесь:
 
+    interface Movable {
+    }
+
+    interface Eatable {
+    }
+
+    interface Eat {
+    }
+
+    class Dog implements Movable, Eat {
+
+    }
+
+    class Cat implements Movable, Eatable, Eat {
+
+    }
+
+    class Mouse implements Movable, Eatable {
+
+    }
 
 
 }
