@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chromium.ChromiumDriver;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -13,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class SearchRequestTest {
 
 
-    static WebDriver driver = new ChromeDriver();
+    static WebDriver driver = new ChromeDriver(); // TODO Все комменты к предыдущему файлу применимы и здесь.
 
     public WebElement getWebElement(String Xpath) {
         return driver.findElement(By.xpath(Xpath));
@@ -29,7 +30,7 @@ public class SearchRequestTest {
 
 
     @Test
-    public void testRequestSearch() {
+    public void testRequestSearch() { // TODO мне этот тест кажется слишком зависимым от системы. Ведь ты берешь сильно специфические данные для него
 
         WebElement usernameFiled = getWebElement("//input[@id=\"usernamefield\"]");
         usernameFiled.click();

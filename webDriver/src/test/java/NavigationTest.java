@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class NavigationTest {
 
-    static WebDriver driver = new ChromeDriver();
+    static WebDriver driver = new ChromeDriver(); // TODO Все комменты к предыдущему файлу применимы и здесь.
 
     public WebElement getWebElement(String Xpath) {
         return driver.findElement(By.xpath(Xpath));

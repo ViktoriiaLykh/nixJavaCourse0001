@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class LoginTest {
 
-    static WebDriver driver = new ChromeDriver();
+    static WebDriver driver = new ChromeDriver(); // TODO Драйвер лучше создавать в бефор класс, а
 
     public WebElement getWebElement(String Xpath) {
         return driver.findElement(By.xpath(Xpath));
@@ -17,8 +17,8 @@ public class LoginTest {
 
     @BeforeEach
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Viktoria\\Downloads\\chromedriver_win32\\chromedriver.exe");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Viktoria\\Downloads\\chromedriver_win32\\chromedriver.exe"); // TODO Эта стока не сработает ни разу. Так как вебдрайвер уже статически загружен
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15)); // TODO Эти конфиги можно задать один раз, а не перед каждым тестом
         driver.manage().window().maximize();
         driver.get("https://prodtest2.prounlimited.com/login.html");
     }
