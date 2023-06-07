@@ -1,37 +1,34 @@
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chromium.ChromiumDriver;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class SearchRequestTest {
 
 
-    static WebDriver driver = new ChromeDriver(); // TODO Все комменты к предыдущему файлу применимы и здесь.
+    static WebDriver driver;
+
+    @BeforeAll
+    public static void setUp() {
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().window().maximize();
+    }
+
+    @BeforeEach
+    public void navigateHomePage() {
+        driver.get("https://prodtest2.prounlimited.com/login.html");
+    }
 
     public WebElement getWebElement(String Xpath) {
         return driver.findElement(By.xpath(Xpath));
     }
 
-    @BeforeEach
-    public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Viktoria\\Downloads\\chromedriver_win32\\chromedriver.exe");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.manage().window().maximize();
-        driver.get("https://prodtest2.prounlimited.com/login.html");
-    }
-
-
     @Test
-    public void testRequestSearch() { // TODO мне этот тест кажется слишком зависимым от системы. Ведь ты берешь сильно специфические данные для него
-
+    public void testRequestSearch() {
         WebElement usernameFiled = getWebElement("//input[@id=\"usernamefield\"]");
         usernameFiled.click();
         usernameFiled.sendKeys("aaron.sharp@cigna.com");
