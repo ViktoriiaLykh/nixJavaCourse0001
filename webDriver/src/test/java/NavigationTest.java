@@ -1,81 +1,52 @@
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
+import org.example.EngagementPage;
+import org.example.HomePage;
+import org.example.LoginPage;
+import org.example.RequestPage;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class NavigationTest {
 
-
-    static WebDriver driver;
+    private static WebDriver driver;
+    private static LoginPage loginPage;
 
     @BeforeAll
     public static void setUp() {
         driver = new ChromeDriver();
+        loginPage = new LoginPage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
     }
 
     @BeforeEach
-    public void navigateHomePage() {
-        driver.get("https://prodtest2.prounlimited.com/login.html");
-    }
-
-    public WebElement getWebElement(String Xpath) {
-        return driver.findElement(By.xpath(Xpath));
+    public void navigateLoginPage() {
+        driver.get(LoginPage.LOGIN_PAGE_URL);
     }
 
     @Test
     public void testNavigation() {
-        WebElement usernameFiled = getWebElement("//input[@id=\"usernamefield\"]");
-        usernameFiled.click();
-        usernameFiled.sendKeys("aaron.sharp@cigna.com");
+        HomePage homePage = loginPage.loginUser("aaron.sharp@cigna.com", "qa!23456");
+        assertTrue(homePage.isSuccessLogin());
 
+        RequestPage requestPage = homePage.navigateRequestPage();
+        assertTrue(driver.getCurrentUrl().contains(RequestPage.PAGE_URL));
+        assertTrue(requestPage.getRequestText().isDisplayed());
 
-        WebElement passwordField = getWebElement("//input[@id=\"passwordfield\"]");
-        passwordField.click();
-        passwordField.sendKeys("qa!23456");
-
-
-        WebElement loginButton = getWebElement("//button[@id=\"loginButton\"]");
-        loginButton.click();
-
-
-        String managerHomeLink = driver.getCurrentUrl();
-        boolean expectedManagerHomeLink = managerHomeLink.contains("manager/home");
-        Assertions.assertTrue(expectedManagerHomeLink);
-
-
-        WebElement requestButton = getWebElement("//a[@aria-label = 'Requests']");
-        requestButton.click();
-
-
-        String managerRequestLink = driver.getCurrentUrl();
-        boolean expectedManagerRequestLink = managerRequestLink.contains("manager/postings");
-        Assertions.assertTrue(expectedManagerRequestLink);
-
-        WebElement requestText = getWebElement("//h3//span[text () = 'Requests']");
-        boolean isEnabledRequestText = requestText.isDisplayed();
-        Assertions.assertTrue(isEnabledRequestText);
-
-        WebElement engagementButton = getWebElement("//a[@aria-label='Engagements']");
-        engagementButton.click();
-
-        String managerEngagementLink = driver.getCurrentUrl();
-        boolean expectedManagerEngagementLink = managerEngagementLink.contains("manager/workforce");
-        Assertions.assertTrue(expectedManagerEngagementLink);
-
-        WebElement engagementText = getWebElement("//h3//span[text () = 'Engagements']");
-        boolean isEnabledEngagementText = engagementText.isDisplayed();
-        Assertions.assertTrue(isEnabledEngagementText);
-
+        EngagementPage engagementPage = homePage.navigateEngagementPage();
+        assertTrue(driver.getCurrentUrl().contains(EngagementPage.PAGE_URL));
+        assertTrue(engagementPage.getEngagementText().isDisplayed());
     }
 
     @AfterAll
     public static void tearDown() {
         driver.quit();
     }
-
 }
