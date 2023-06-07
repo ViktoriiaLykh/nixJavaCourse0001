@@ -30,7 +30,7 @@ public class LoginPage {
     @FindBy(xpath = "//div[@id=\"div_wand_validation_errors\"]//span[text () = 'Invalid username / password']")
     private WebElement loginValidationError;
 
-    public HomePage loginUser(String userName, String password) {
+    public HomePage loginUser(String userName, String password) { // TODO Метод лучше бы назвать как-то иначе (loginAsUser)
         usernameFiled.click();
         usernameFiled.sendKeys(userName);
         passwordField.click();

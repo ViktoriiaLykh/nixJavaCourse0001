@@ -14,7 +14,7 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-@Getter
+@Getter // TODO Не было задания использовать эту библиотеку) Тем более, она нам не нужна здесь)
 public class RequestPage {
 
     public static final String PAGE_URL = "manager/postings";
@@ -27,10 +27,10 @@ public class RequestPage {
     }
 
     @FindBy(xpath = "//h3//span[text () = 'Requests']")
-    private WebElement requestText;
+    private WebElement requestText; // TODO - этот селектор по своей сути универсальный. И он не текст, а хэдер
 
     @FindBy(xpath = "//span[text () = 'Advanced']")
-    private WebElement advancedSearch;
+    private WebElement advancedSearch; // TODO - это кнопка или поле ввода или ссылка?) Из названия не понятно
 
     @FindBy(xpath = "//input[@formcontrolname=\"searchText\"]")
     private WebElement searchTextField;
@@ -51,7 +51,7 @@ public class RequestPage {
     private WebElement searchButton;
 
     @FindBy(xpath = "//tbody[@role=\"rowgroup\"]//a[1]")
-    private WebElement requestNumber;
+    private WebElement requestNumber; // TODO - это счетчик реквестов?
 
     public void enterRequestNumber(String requestNumber) {
         searchTextField.click();
@@ -63,7 +63,7 @@ public class RequestPage {
         dateCreatedOption.click();
     }
 
-    public void selectDate(LocalDate date) {
+    public void selectDate(LocalDate date) { // TODO Это не пейдж обжект паттерн)
         String monthAbbreviation = Month.of(date.getMonthValue()).name().substring(0, 3);
 
         WebElement openDateSelector = driver.findElement(By.xpath(("//button[@aria-label=\"Choose month and year\"]")));

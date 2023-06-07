@@ -32,7 +32,7 @@ public class NavigationTest {
     }
 
     @Test
-    public void testNavigation() {
+    public void testNavigation() { // TODO Ассерты переносим в пейдж обжект
         HomePage homePage = loginPage.loginUser("aaron.sharp@cigna.com", "qa!23456");
         assertTrue(homePage.isSuccessLogin());
 
@@ -40,7 +40,7 @@ public class NavigationTest {
         assertTrue(driver.getCurrentUrl().contains(RequestPage.PAGE_URL));
         assertTrue(requestPage.getRequestText().isDisplayed());
 
-        EngagementPage engagementPage = homePage.navigateEngagementPage();
+        EngagementPage engagementPage = homePage.navigateEngagementPage(); // TODO А мы ведь находились на странице реквестов, а почему переходим опять с хоум пейджа?
         assertTrue(driver.getCurrentUrl().contains(EngagementPage.PAGE_URL));
         assertTrue(engagementPage.getEngagementText().isDisplayed());
     }
