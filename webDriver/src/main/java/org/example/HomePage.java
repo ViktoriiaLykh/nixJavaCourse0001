@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class HomePage {
 
     public static final String PAGE_URL = "manager/home";
@@ -15,8 +18,6 @@ public class HomePage {
     @FindBy(xpath = "//a[@aria-label = 'Requests']")
     private WebElement requestButton;
 
-    @FindBy(xpath = "//a[@aria-label='Engagements']")
-    private WebElement engagementButton;
 
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -28,12 +29,12 @@ public class HomePage {
         return new RequestPage(driver);
     }
 
-    public EngagementPage navigateEngagementPage() {
-        engagementButton.click();
-        return new EngagementPage(driver);
+    public void verifyUserLoggedIn() {
+        assertTrue(driver.getCurrentUrl().contains(PAGE_URL));
     }
 
-    public boolean isSuccessLogin() {
-        return driver.getCurrentUrl().contains(PAGE_URL);
+    public void verifyUserNotLoggedIn() {
+        assertFalse(driver.getCurrentUrl().contains(PAGE_URL));
     }
+
 }

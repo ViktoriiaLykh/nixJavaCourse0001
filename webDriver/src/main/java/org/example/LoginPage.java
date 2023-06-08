@@ -1,12 +1,12 @@
 package org.example;
 
-import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-@Getter
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class LoginPage {
 
     public static final String LOGIN_PAGE_URL = "https://prodtest2.prounlimited.com/login.html";
@@ -30,12 +30,19 @@ public class LoginPage {
     @FindBy(xpath = "//div[@id=\"div_wand_validation_errors\"]//span[text () = 'Invalid username / password']")
     private WebElement loginValidationError;
 
-    public HomePage loginUser(String userName, String password) { // TODO Метод лучше бы назвать как-то иначе (loginAsUser)
+    public HomePage loginAsUser(UserCredentials credentials) { // TODO Метод лучше бы назвать как-то иначе (loginAsUser) ++
         usernameFiled.click();
-        usernameFiled.sendKeys(userName);
+        usernameFiled.sendKeys(credentials.getUserName());
         passwordField.click();
-        passwordField.sendKeys(password);
+        passwordField.sendKeys(credentials.getPassword());
         loginButton.click();
         return new HomePage(driver);
     }
+
+    public void checkLoginValidationError() {
+        boolean isErrorDisplayed = loginValidationError.isDisplayed();
+        assertTrue(isErrorDisplayed);
+    }
+
+
 }

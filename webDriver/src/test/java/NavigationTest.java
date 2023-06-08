@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.example.UserCredentials.VALID_USER;
 
 public class NavigationTest {
 
@@ -32,17 +32,15 @@ public class NavigationTest {
     }
 
     @Test
-    public void testNavigation() { // TODO Ассерты переносим в пейдж обжект
-        HomePage homePage = loginPage.loginUser("aaron.sharp@cigna.com", "qa!23456");
-        assertTrue(homePage.isSuccessLogin());
+    public void testNavigation() { // TODO Ассерты переносим в пейдж обжект ++
+        HomePage homePage = loginPage.loginAsUser(VALID_USER);
+        homePage.verifyUserLoggedIn();
 
         RequestPage requestPage = homePage.navigateRequestPage();
-        assertTrue(driver.getCurrentUrl().contains(RequestPage.PAGE_URL));
-        assertTrue(requestPage.getRequestText().isDisplayed());
+        requestPage.verifyUserOnPage();
 
-        EngagementPage engagementPage = homePage.navigateEngagementPage(); // TODO А мы ведь находились на странице реквестов, а почему переходим опять с хоум пейджа?
-        assertTrue(driver.getCurrentUrl().contains(EngagementPage.PAGE_URL));
-        assertTrue(engagementPage.getEngagementText().isDisplayed());
+        EngagementPage engagementPage = requestPage.navigateEngagementPage(); // TODO А мы ведь находились на странице реквестов, а почему переходим опять с хоум пейджа? ++
+        engagementPage.verifyUserOnPage();
     }
 
     @AfterAll

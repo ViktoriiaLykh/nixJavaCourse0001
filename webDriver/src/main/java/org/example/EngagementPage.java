@@ -1,12 +1,12 @@
 package org.example;
 
-import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-@Getter
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class EngagementPage {
 
     public static final String PAGE_URL = "manager/workforce";
@@ -19,5 +19,11 @@ public class EngagementPage {
     }
 
     @FindBy(xpath = "//h3//span[text () = 'Engagements']")
-    private WebElement engagementText;
+    private WebElement engagementHeader;
+
+    public void verifyUserOnPage() {
+        assertTrue(driver.getCurrentUrl().contains(EngagementPage.PAGE_URL));
+        assertTrue(engagementHeader.isDisplayed());
+    }
 }
+
