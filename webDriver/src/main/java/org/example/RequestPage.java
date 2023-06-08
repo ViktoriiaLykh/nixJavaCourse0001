@@ -22,8 +22,6 @@ public class RequestPage {
 
     private final WebDriver driver;
 
-    private final Object lock = new Object();
-
     public RequestPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -68,6 +66,15 @@ public class RequestPage {
     @FindBy(xpath = "//td[5]")
     private List<WebElement> searchResultDates;
 
+    @FindBy(xpath = "//h4[text() = 'Type of Requests']//..//span[@class=\"mat-checkbox-inner-container\"]")
+    private List<WebElement> enabledTypeOfRequestsCheckboxes;
+
+    @FindBy(xpath =  "//mat-checkbox[@formcontrolname=\"payroll\"]//span[@class = \"mat-checkbox-inner-container\"]")
+    private WebElement payrollTypeOfRequestsCheckbox;
+
+    @FindBy(xpath = "//td[6]")
+    private List<WebElement> searchResultTypeOfRequests;
+
     public void enterRequestNumber(String requestNumber) {
         searchTextField.click();
         searchTextField.sendKeys(requestNumber);
@@ -106,6 +113,28 @@ public class RequestPage {
         return true;
     }
 
+    public void disableTypeOfRequestsCheckboxes() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+        wait.until(ExpectedConditions.visibilityOfAllElements(enabledTypeOfRequestsCheckboxes));
+        for (WebElement checkbox : enabledTypeOfRequestsCheckboxes) {
+            checkbox.click();
+        }
+    }
+
+    public boolean isPayrollTypeOfRequestsInSearchResults () {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+        wait.until(ExpectedConditions.visibilityOfAllElements(searchResultTypeOfRequests));
+        for (WebElement typeOfRequests : searchResultTypeOfRequests) {
+            if (!typeOfRequests.getText().equals("Payroll"))
+                return false;
+        }
+        return true;
+    }
+
+    public void enablePayrollTypeOfRequestsCheckbox() {
+        payrollTypeOfRequestsCheckbox.click();
+    }
+
     public boolean testInputRequestNumber(String requestInputNumber) {
         return requestInputNumber.equals(requestNumber.getText());
     }
@@ -142,5 +171,9 @@ public class RequestPage {
 
     public void checkInputRequestNumberInSearchResult(String requestInputNumber) {
         assertTrue(testInputRequestNumber(requestInputNumber));
+    }
+
+    public void checkPayrollTypeOfRequestsInSearchResults() {
+        assertTrue(isPayrollTypeOfRequestsInSearchResults());
     }
 }
