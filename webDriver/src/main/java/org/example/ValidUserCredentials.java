@@ -1,12 +1,13 @@
 package org.example;
 
 
-public enum UserCredentials {
+public enum ValidUserCredentials {
 
     VALID_USER("aaron.sharp@cigna.com", "qa!23456"),
-    INVALID_USER("aaron.sharp@cigna.com", "qa!22222");
+    VALID_USER_1("alvernus.lamb@cigna.com", "qa!23456");
 
-    UserCredentials(String userName, String password) {
+
+    ValidUserCredentials(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }

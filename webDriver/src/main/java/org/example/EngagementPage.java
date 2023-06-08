@@ -21,9 +21,10 @@ public class EngagementPage {
     @FindBy(xpath = "//h3//span[text () = 'Engagements']")
     private WebElement engagementHeader;
 
-    public void verifyUserOnPage() {
+    public EngagementPage verifyUserOnPage() {
         assertTrue(driver.getCurrentUrl().contains(EngagementPage.PAGE_URL));
         assertTrue(engagementHeader.isDisplayed());
+        return this;
     }
 }
 

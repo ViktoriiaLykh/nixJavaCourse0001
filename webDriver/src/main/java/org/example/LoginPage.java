@@ -30,7 +30,7 @@ public class LoginPage {
     @FindBy(xpath = "//div[@id=\"div_wand_validation_errors\"]//span[text () = 'Invalid username / password']")
     private WebElement loginValidationError;
 
-    public HomePage loginAsUser(UserCredentials credentials) { // TODO Метод лучше бы назвать как-то иначе (loginAsUser) ++
+    public HomePage loginAsUser(ValidUserCredentials credentials) { // TODO Метод лучше бы назвать как-то иначе (loginAsUser) ++
         usernameFiled.click();
         usernameFiled.sendKeys(credentials.getUserName());
         passwordField.click();
@@ -39,9 +39,24 @@ public class LoginPage {
         return new HomePage(driver);
     }
 
-    public void checkLoginValidationError() {
+    public LoginPage loginAsUserWithWrongCredentials(InvalidUserCredentials credentials) {
+        usernameFiled.click();
+        usernameFiled.sendKeys(credentials.getUserName());
+        passwordField.click();
+        passwordField.sendKeys(credentials.getPassword());
+        loginButton.click();
+        return new LoginPage(driver);
+    }
+
+    public LoginPage checkLoginValidationError() {
         boolean isErrorDisplayed = loginValidationError.isDisplayed();
         assertTrue(isErrorDisplayed);
+        return this;
+    }
+
+    public LoginPage verifyUserNotLoggedIn() {
+        assertTrue(driver.getCurrentUrl().contains(LOGIN_PAGE_URL));
+        return this;
     }
 
 

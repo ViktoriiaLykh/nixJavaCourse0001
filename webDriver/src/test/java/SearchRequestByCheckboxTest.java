@@ -1,6 +1,4 @@
-import org.example.HomePage;
 import org.example.LoginPage;
-import org.example.RequestPage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-import static org.example.UserCredentials.VALID_USER;
+import static org.example.ValidUserCredentials.VALID_USER;
 
 public class SearchRequestByCheckboxTest {
 
@@ -33,17 +31,15 @@ public class SearchRequestByCheckboxTest {
 
     @Test
     public void testRequestSearchByCheckbox() {
-        HomePage homePage = loginPage.loginAsUser(VALID_USER);
-        homePage.verifyUserLoggedIn();
-
-        RequestPage requestPage = homePage.navigateRequestPage();
-        requestPage.verifyUserOnPage();
-
-        requestPage.openAdvancedSearch();
-        requestPage.disableTypeOfRequestsCheckboxes();
-        requestPage.enablePayrollTypeOfRequestsCheckbox();
-        requestPage.clickSearchButton();
-        requestPage.isPayrollTypeOfRequestsInSearchResults();
+        loginPage.loginAsUser(VALID_USER)
+                .verifyUserLoggedIn()
+                .navigateRequestPage()
+                .verifyUserOnPage()
+                .openAdvancedSearch()
+                .disableTypeOfRequestsCheckboxes()
+                .enablePayrollTypeOfRequestsCheckbox()
+                .clickSearchButton()
+                .checkPayrollTypeOfRequestsInSearchResults();
     }
 
     @AfterAll

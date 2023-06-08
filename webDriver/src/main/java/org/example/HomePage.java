@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HomePage {
@@ -29,12 +28,9 @@ public class HomePage {
         return new RequestPage(driver);
     }
 
-    public void verifyUserLoggedIn() {
+    public HomePage verifyUserLoggedIn() {
         assertTrue(driver.getCurrentUrl().contains(PAGE_URL));
-    }
-
-    public void verifyUserNotLoggedIn() {
-        assertFalse(driver.getCurrentUrl().contains(PAGE_URL));
+        return this;
     }
 
 }

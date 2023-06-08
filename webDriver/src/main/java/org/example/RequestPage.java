@@ -14,7 +14,7 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RequestPage {
 
@@ -69,23 +69,25 @@ public class RequestPage {
     @FindBy(xpath = "//h4[text() = 'Type of Requests']//..//span[@class=\"mat-checkbox-inner-container\"]")
     private List<WebElement> enabledTypeOfRequestsCheckboxes;
 
-    @FindBy(xpath =  "//mat-checkbox[@formcontrolname=\"payroll\"]//span[@class = \"mat-checkbox-inner-container\"]")
+    @FindBy(xpath = "//mat-checkbox[@formcontrolname=\"payroll\"]//span[@class = \"mat-checkbox-inner-container\"]")
     private WebElement payrollTypeOfRequestsCheckbox;
 
     @FindBy(xpath = "//td[6]")
     private List<WebElement> searchResultTypeOfRequests;
 
-    public void enterRequestNumber(String requestNumber) {
+    public RequestPage enterRequestNumber(String requestNumber) {
         searchTextField.click();
         searchTextField.sendKeys(requestNumber);
+        return this;
     }
 
-    public void selectDateCreatedFilter() {
+    public RequestPage selectDateCreatedFilter() {
         dateRangeDropdown.click();
         dateCreatedOption.click();
+        return this;
     }
 
-    public void selectDate(LocalDate date) { // TODO Это не пейдж обжект паттерн)  ++ //обсудили на созвоне
+    public RequestPage selectDate(LocalDate date) { // TODO Это не пейдж обжект паттерн)  ++ //обсудили на созвоне
         String monthAbbreviation = Month.of(date.getMonthValue()).name().substring(0, 3);
 
         openDateSelector.click();
@@ -98,45 +100,46 @@ public class RequestPage {
 
         WebElement chooseDay = driver.findElement(By.xpath(("//div[text () = ' " + date.getDayOfMonth() + " ']")));
         chooseDay.click();
+
+        return this;
     }
 
-    public boolean checkDateRangeInSearchResults(LocalDate fromDate, LocalDate toDate) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+    public RequestPage checkDateRangeInSearchResults(LocalDate fromDate, LocalDate toDate) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50000));
         wait.until(ExpectedConditions.visibilityOfAllElements(searchResultDates));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         for (WebElement dateElement : searchResultDates) {
             LocalDate date = LocalDate.parse(dateElement.getText(), formatter);
-            if (date.isBefore(fromDate) || date.isAfter(toDate)) {
-                return false;
-            }
+            assertFalse(date.isBefore(fromDate) || date.isAfter(toDate));
         }
-        return true;
+        return this;
     }
 
-    public void disableTypeOfRequestsCheckboxes() {
+    public RequestPage disableTypeOfRequestsCheckboxes() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
         wait.until(ExpectedConditions.visibilityOfAllElements(enabledTypeOfRequestsCheckboxes));
         for (WebElement checkbox : enabledTypeOfRequestsCheckboxes) {
             checkbox.click();
         }
+        return this;
     }
 
-    public boolean isPayrollTypeOfRequestsInSearchResults () {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
+    public void checkPayrollTypeOfRequestsInSearchResults() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50000));
         wait.until(ExpectedConditions.visibilityOfAllElements(searchResultTypeOfRequests));
         for (WebElement typeOfRequests : searchResultTypeOfRequests) {
-            if (!typeOfRequests.getText().equals("Payroll"))
-                return false;
+            assertEquals("Payroll", typeOfRequests.getText());
         }
-        return true;
     }
 
-    public void enablePayrollTypeOfRequestsCheckbox() {
+    public RequestPage enablePayrollTypeOfRequestsCheckbox() {
         payrollTypeOfRequestsCheckbox.click();
+        return this;
     }
 
-    public boolean testInputRequestNumber(String requestInputNumber) {
-        return requestInputNumber.equals(requestNumber.getText());
+    public RequestPage checkInputRequestNumberInSearchResult(String requestInputNumber) {
+        assertEquals(requestInputNumber, requestNumber.getText());
+        return this;
     }
 
     public EngagementPage navigateEngagementPage() {
@@ -144,36 +147,31 @@ public class RequestPage {
         return new EngagementPage(driver);
     }
 
-    public void verifyUserOnPage() {
+    public RequestPage verifyUserOnPage() {
         assertTrue(driver.getCurrentUrl().contains(RequestPage.PAGE_URL));
         assertTrue(requestHeader.isDisplayed());
+        return this;
     }
 
-    public void openAdvancedSearch() {
+    public RequestPage openAdvancedSearch() {
         advancedSearchButton.click();
+        return this;
     }
 
-    public void openDataPickerFromDate() {
+    public RequestPage openDataPickerFromDate() {
         dataPickerFromDate.click();
+        return this;
     }
 
-    public void openDataPickerToDate() {
+    public RequestPage openDataPickerToDate() {
         dataPickerToDate.click();
+        return this;
     }
 
-    public void clickSearchButton() {
+    public RequestPage clickSearchButton() {
         searchButton.click();
+        return this;
     }
 
-    public void checkDateInSearchResult(LocalDate fromDate, LocalDate toDate) {
-        assertTrue(checkDateRangeInSearchResults(fromDate, toDate));
-    }
 
-    public void checkInputRequestNumberInSearchResult(String requestInputNumber) {
-        assertTrue(testInputRequestNumber(requestInputNumber));
-    }
-
-    public void checkPayrollTypeOfRequestsInSearchResults() {
-        assertTrue(isPayrollTypeOfRequestsInSearchResults());
-    }
 }
