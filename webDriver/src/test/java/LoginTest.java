@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -38,13 +40,12 @@ public class LoginTest {
         homePage.verifyUserLoggedIn(); // TODO Ничего не мешает использовать матчер в файле пейдж обжекта ++
     }
 
-    @Test
-    public void testInvalidLogin() { // TODO Тест может использовать датапровайдер для тестирования и неверного логина и пароля
-        for (InvalidUserCredentials credentials : InvalidUserCredentials.values()) {
+    @ParameterizedTest
+    @EnumSource(InvalidUserCredentials.class)
+    public void testInvalidLogin(InvalidUserCredentials credentials) { // TODO Тест может использовать датапровайдер для тестирования и неверного логина и пароля
             loginPage.loginAsUserWithWrongCredentials(credentials)
                     .checkLoginValidationError()
                     .verifyUserNotLoggedIn();
-        }
     }
 
     @AfterAll
