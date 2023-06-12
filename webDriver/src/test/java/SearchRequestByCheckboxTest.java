@@ -34,10 +34,10 @@ public class SearchRequestByCheckboxTest {
         loginPage.loginAsUser(VALID_USER)
                 .verifyUserLoggedIn()
                 .navigateRequestPage()
-                .verifyUserOnPage()
+                .verifyUserOnPage() // TODO На какой пейдже?
                 .openAdvancedSearch()
-                .disableTypeOfRequestsCheckboxes()
-                .enablePayrollTypeOfRequestsCheckbox()
+                .disableTypeOfRequestsCheckboxes() // TODO Название метода не совсем отражает его действие. Этот метод просто кликает
+                .enablePayrollTypeOfRequestsCheckbox() // TODO Название метода не совсем отражает его действие. Этот метод просто кликает
                 .clickSearchButton()
                 .checkPayrollTypeOfRequestsInSearchResults();
     }

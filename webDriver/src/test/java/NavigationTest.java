@@ -36,7 +36,7 @@ public class NavigationTest {
                 .navigateRequestPage()
                 .verifyUserOnPage()
                 .navigateEngagementPage()
-                .verifyUserOnPage();
+                .verifyUserOnPage(); // TODO А можно сделать как-то чтоб не дублировать методы?
 // TODO А мы ведь находились на странице реквестов, а почему переходим опять с хоум пейджа? ++
 
     }

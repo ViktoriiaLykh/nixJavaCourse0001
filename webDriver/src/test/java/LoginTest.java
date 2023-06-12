@@ -44,7 +44,7 @@ public class LoginTest {
     @EnumSource(InvalidUserCredentials.class)
     public void testInvalidLogin(InvalidUserCredentials credentials) { // TODO Тест может использовать датапровайдер для тестирования и неверного логина и пароля
             loginPage.loginAsUserWithWrongCredentials(credentials)
-                    .checkLoginValidationError()
+                    .checkLoginValidationError() // TODO Тут можно передавать параметры для большей универсальности метода
                     .verifyUserNotLoggedIn();
     }
 
