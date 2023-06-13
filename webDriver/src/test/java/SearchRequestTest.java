@@ -31,7 +31,7 @@ public class SearchRequestTest {
     }
 
     @Test
-    public void testRequestSearch() { // TODO Ассерты переносим в пейдж обжект. Кто генерит эксепшен? ++
+    public void testRequestSearch() {
 
         LocalDate fromDate = LocalDate.of(2023, 5, 31);
         LocalDate toDate = LocalDate.of(2023, 6, 2);
@@ -51,12 +51,6 @@ public class SearchRequestTest {
                 .clickSearchButton()
                 .checkDateRangeInSearchResults(fromDate, toDate)
                 .checkInputRequestNumberInSearchResult(requestNumber);
-        // TODO - Юзера можно вынести в отдельный класс или енам. Он используется в нескольких местах ++
-        // TODO - Не похоже на пейдж обжект паттерн ++
-        // TODO Такие переменные обьявляются обычно в начале тестового сценария для простоты внесения изменений ++
-
-        // TODO Такие переменные обьявляются обычно в начале тестового сценария для простоты внесения изменений ++
-// TODO - "23497937" должно быть обьявлено переменной и использовано) ++
     }
 
     @AfterAll

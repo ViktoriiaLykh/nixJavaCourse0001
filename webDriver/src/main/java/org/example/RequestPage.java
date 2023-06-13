@@ -16,20 +16,12 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class RequestPage {
-
-    public static final String PAGE_URL = "manager/postings";
-
-    private final WebDriver driver;
+public class RequestPage extends BasePage<RequestPage> {
 
     public RequestPage(WebDriver driver) {
+        super(driver, "manager/postings", "//h3//span[text () = 'Requests']");
         PageFactory.initElements(driver, this);
-        this.driver = driver;
     }
-
-    @FindBy(xpath = "//h3//span[text () = 'Requests']")
-    private WebElement requestHeader; // TODO - этот селектор по своей сути универсальный. И он не текст, а хэдер ++
-    // поменяла на хедер, это проверка что хедер отображается нужный. Просто как доп проверка) не более
 
     @FindBy(xpath = "//span[text () = 'Advanced']")
     private WebElement advancedSearchButton; // TODO - это кнопка или поле ввода или ссылка?) Из названия не понятно ++
@@ -66,11 +58,11 @@ public class RequestPage {
     @FindBy(xpath = "//td[5]")
     private List<WebElement> searchResultDates;
 
-    @FindBy(xpath = "//h4[text() = 'Type of Requests']//..//span[@class=\"mat-checkbox-inner-container\"]")
-    private List<WebElement> enabledTypeOfRequestsCheckboxes;
+    @FindBy(xpath = "//h4[text() = 'Type of Requests']//..//span[input[@aria-checked=\"true\"]]")
+    private List<WebElement> listEnabledTypeOfRequestsCheckboxes;
 
     @FindBy(xpath = "//mat-checkbox[@formcontrolname=\"payroll\"]//span[@class = \"mat-checkbox-inner-container\"]")
-    private WebElement payrollTypeOfRequestsCheckbox;
+    private WebElement disablePayrollTypeOfRequestsCheckbox;
 
     @FindBy(xpath = "//td[6]")
     private List<WebElement> searchResultTypeOfRequests;
@@ -105,7 +97,7 @@ public class RequestPage {
     }
 
     public RequestPage checkDateRangeInSearchResults(LocalDate fromDate, LocalDate toDate) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50000));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfAllElements(searchResultDates));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         for (WebElement dateElement : searchResultDates) {
@@ -115,25 +107,25 @@ public class RequestPage {
         return this;
     }
 
-    public RequestPage disableTypeOfRequestsCheckboxes() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(500));
-        wait.until(ExpectedConditions.visibilityOfAllElements(enabledTypeOfRequestsCheckboxes));
-        for (WebElement checkbox : enabledTypeOfRequestsCheckboxes) {
+    public RequestPage disableAllTypeOfRequestsCheckboxes() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfAllElements(listEnabledTypeOfRequestsCheckboxes));
+        for (WebElement checkbox : listEnabledTypeOfRequestsCheckboxes) {
             checkbox.click();
         }
         return this;
     }
 
     public void checkPayrollTypeOfRequestsInSearchResults() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50000));
-        wait.until(ExpectedConditions.visibilityOfAllElements(searchResultTypeOfRequests));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy((By.xpath("//td[6]"))));
         for (WebElement typeOfRequests : searchResultTypeOfRequests) {
             assertEquals("Payroll", typeOfRequests.getText());
         }
     }
 
     public RequestPage enablePayrollTypeOfRequestsCheckbox() {
-        payrollTypeOfRequestsCheckbox.click();
+        disablePayrollTypeOfRequestsCheckbox.click();
         return this;
     }
 
@@ -147,11 +139,6 @@ public class RequestPage {
         return new EngagementPage(driver);
     }
 
-    public RequestPage verifyUserOnPage() {
-        assertTrue(driver.getCurrentUrl().contains(RequestPage.PAGE_URL));
-        assertTrue(requestHeader.isDisplayed());
-        return this;
-    }
 
     public RequestPage openAdvancedSearch() {
         advancedSearchButton.click();

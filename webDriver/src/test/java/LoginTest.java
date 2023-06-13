@@ -37,14 +37,14 @@ public class LoginTest {
     @Test
     public void testValidLogin() {
         HomePage homePage = loginPage.loginAsUser(VALID_USER);
-        homePage.verifyUserLoggedIn(); // TODO Ничего не мешает использовать матчер в файле пейдж обжекта ++
+        homePage.verifyUserLoggedIn();
     }
 
     @ParameterizedTest
     @EnumSource(InvalidUserCredentials.class)
-    public void testInvalidLogin(InvalidUserCredentials credentials) { // TODO Тест может использовать датапровайдер для тестирования и неверного логина и пароля
+    public void testInvalidLogin(InvalidUserCredentials credentials) {
             loginPage.loginAsUserWithWrongCredentials(credentials)
-                    .checkLoginValidationError() // TODO Тут можно передавать параметры для большей универсальности метода
+                    .checkLoginValidationError("Invalid username / password") // TODO Тут можно передавать параметры для большей универсальности метода ++
                     .verifyUserNotLoggedIn();
     }
 

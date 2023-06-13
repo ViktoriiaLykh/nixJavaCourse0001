@@ -1,5 +1,6 @@
 package org.example;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,9 +28,6 @@ public class LoginPage {
     @FindBy(xpath = "//button[@id=\"loginButton\"]")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//div[@id=\"div_wand_validation_errors\"]//span[text () = 'Invalid username / password']")
-    private WebElement loginValidationError;
-
     public HomePage loginAsUser(ValidUserCredentials credentials) { // TODO Метод лучше бы назвать как-то иначе (loginAsUser) ++
         usernameFiled.click();
         usernameFiled.sendKeys(credentials.getUserName());
@@ -48,8 +46,9 @@ public class LoginPage {
         return new LoginPage(driver);
     }
 
-    public LoginPage checkLoginValidationError() {
-        boolean isErrorDisplayed = loginValidationError.isDisplayed();
+    public LoginPage checkLoginValidationError(String errorMessage) {
+        WebElement loginError = driver.findElement(By.xpath("//div[@id=\"div_wand_validation_errors\"]//span[text () = '" + errorMessage + "']"));
+        boolean isErrorDisplayed = loginError.isDisplayed();
         assertTrue(isErrorDisplayed);
         return this;
     }

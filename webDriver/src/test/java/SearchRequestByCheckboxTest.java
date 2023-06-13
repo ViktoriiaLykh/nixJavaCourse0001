@@ -34,10 +34,12 @@ public class SearchRequestByCheckboxTest {
         loginPage.loginAsUser(VALID_USER)
                 .verifyUserLoggedIn()
                 .navigateRequestPage()
-                .verifyUserOnPage() // TODO На какой пейдже?
+                .verifyUserOnPage() // TODO На какой пейдже? ++ обсудили на созвоне
+                //сделала парент класс и в наслдениках сделала конструкторы с url и элементами хедера
+                //был ещё вариант хранить в енам и передавать в метод, но подумала что вариант с конструкторами лучше) Как лучше в данном случае?
                 .openAdvancedSearch()
-                .disableTypeOfRequestsCheckboxes() // TODO Название метода не совсем отражает его действие. Этот метод просто кликает
-                .enablePayrollTypeOfRequestsCheckbox() // TODO Название метода не совсем отражает его действие. Этот метод просто кликает
+                .disableAllTypeOfRequestsCheckboxes()// TODO Название метода не совсем отражает его действие. Этот метод просто кликает ++ //переписала селектор, теперь в лист попадают только заранее активные чекбоксы. метод использует только активные
+                .enablePayrollTypeOfRequestsCheckbox() // TODO Название метода не совсем отражает его действие. Этот метод просто кликает ++ // тоже переписала селектор
                 .clickSearchButton()
                 .checkPayrollTypeOfRequestsInSearchResults();
     }
@@ -47,4 +49,3 @@ public class SearchRequestByCheckboxTest {
         driver.quit();
     }
 }
-

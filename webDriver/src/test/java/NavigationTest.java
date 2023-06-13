@@ -30,14 +30,14 @@ public class NavigationTest {
     }
 
     @Test
-    public void testNavigation() { // TODO Ассерты переносим в пейдж обжект ++
+    public void testNavigation() {
         loginPage.loginAsUser(VALID_USER)
                 .verifyUserLoggedIn()
                 .navigateRequestPage()
                 .verifyUserOnPage()
                 .navigateEngagementPage()
-                .verifyUserOnPage(); // TODO А можно сделать как-то чтоб не дублировать методы?
-// TODO А мы ведь находились на странице реквестов, а почему переходим опять с хоум пейджа? ++
+                .verifyUserOnPage(); // TODO А можно сделать как-то чтоб не дублировать методы? ++ метод вызывается из BasePage
+
 
     }
 
